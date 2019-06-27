@@ -1,0 +1,2101 @@
+{
+    "folders": [
+        {
+            "description": "Folder for configuration", 
+            "collection_name": "SOL002 - VNF Configuration interface", 
+            "collection": "c1d68c88-d480-4b5d-8022-07d7d78d7739", 
+            "id": "3c6a8c9f-f634-4940-b730-9bd879fc8232", 
+            "collection_id": "c1d68c88-d480-4b5d-8022-07d7d78d7739", 
+            "order": [
+                "6a41797b-464c-451d-abf1-91bc021143cb", 
+                "108dd679-8da3-42ee-a188-1ade269b38b3", 
+                "6a41797b-464c-451d-abf1-91bc021143cb0", 
+                "6a41797b-464c-451d-abf1-91bc021143cb1", 
+                "6a41797b-464c-451d-abf1-91bc021143cb2", 
+                "6a41797b-464c-451d-abf1-91bc021143cb3", 
+                "6a41797b-464c-451d-abf1-91bc021143cb4", 
+                "6a41797b-464c-451d-abf1-91bc021143cb5", 
+                "6a41797b-464c-451d-abf1-91bc021143cb6", 
+                "6a41797b-464c-451d-abf1-91bc021143cb7", 
+                "6a41797b-464c-451d-abf1-91bc021143cb8", 
+                "6a41797b-464c-451d-abf1-91bc021143cb9", 
+                "6a41797b-464c-451d-abf1-91bc021143cb10", 
+                "6a41797b-464c-451d-abf1-91bc021143cb11", 
+                "108dd679-8da3-42ee-a188-1ade269b38b312", 
+                "108dd679-8da3-42ee-a188-1ade269b38b313", 
+                "108dd679-8da3-42ee-a188-1ade269b38b314", 
+                "108dd679-8da3-42ee-a188-1ade269b38b315", 
+                "108dd679-8da3-42ee-a188-1ade269b38b316", 
+                "108dd679-8da3-42ee-a188-1ade269b38b317", 
+                "108dd679-8da3-42ee-a188-1ade269b38b318", 
+                "108dd679-8da3-42ee-a188-1ade269b38b319", 
+                "108dd679-8da3-42ee-a188-1ade269b38b320", 
+                "108dd679-8da3-42ee-a188-1ade269b38b321", 
+                "108dd679-8da3-42ee-a188-1ade269b38b322", 
+                "108dd679-8da3-42ee-a188-1ade269b38b323", 
+                "108dd679-8da3-42ee-a188-1ade269b38b324"
+            ], 
+            "name": "configuration"
+        }
+    ], 
+    "description": "VNF Configuration interface of ETSI NFV SOL002\n\nIMPORTANT: Please note that this file might be not aligned to the current version of the ETSI Group Specification it refers to. In case of discrepancies the published ETSI Group Specification takes precedence.\n\nPlease report bugs to https://forge.etsi.org/bugzilla/buglist.cgi?component=Nfv-Openapis&list_id=61&product=NFV&resolution=---\n", 
+    "timestamp": 1413302258635, 
+    "order": [], 
+    "synced": false, 
+    "requests": [
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "collectionId": "c1d68c88-d480-4b5d-8022-07d7d78d7739", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vnfconfig/v1/configuration", 
+            "description": "The client can use this method to read configuration information about a VNF instance and/or its VNFC instances.\n", 
+            "id": "6a41797b-464c-451d-abf1-91bc021143cb", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1561621264184, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "method": "GET", 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/1?query=/vnfconfig/v1/configuration',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "name": "Read VNF/VNFC configuration from VNF."
+        }, 
+        {
+            "dataMode": "raw", 
+            "tests": "", 
+            "responses": [], 
+            "collectionId": "c1d68c88-d480-4b5d-8022-07d7d78d7739", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vnfconfig/v1/configuration", 
+            "description": "This method sets or modifies a configuration resource.", 
+            "id": "108dd679-8da3-42ee-a188-1ade269b38b3", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": "{\n    \"vnfConfigurationData\": {\n        \"extCpConfig\": {\n            \"cpdId\": \"cpdid\",\n            \"cpId\": \"cpid\",\n            \"addresses\": [\n                {\n                    \"useDynamicAddress\": true,\n                    \"port\": 0,\n                    \"address\": {\n                        \"macAddress\": \"macaddress\",\n                        \"ipAddress\": \"ipaddress\"\n                    }\n                }\n            ]\n        },\n        \"vnfSpecificData\": {},\n        \"dhcpServer\": \"dhcpserver\"\n    },\n    \"vnfcConfigurationData\": [\n        {\n            \"vnfcSpecificData\": {},\n            \"vnfcInstanceId\": \"vnfcinstanceid\",\n            \"dhcpServer\": \"dhcpserver\",\n            \"intCpConfig\": [\n                {\n                    \"cpdId\": \"cpdid\",\n                    \"cpId\": \"cpid\",\n                    \"addresses\": [\n                        {\n                            \"useDynamicAddress\": true,\n                            \"port\": 0,\n                            \"address\": {\n                                \"macAddress\": \"macaddress\",\n                                \"ipAddress\": \"ipaddress\"\n                            }\n                        }\n                    ]\n                }\n            ]\n        }\n    ]\n}", 
+            "time": 1561621264184, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "method": "PATCH", 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/2?query=/vnfconfig/v1/configuration',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "name": "Modify VNF/VNFC configuration."
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_200", 
+            "collectionId": "c1d68c88-d480-4b5d-8022-07d7d78d7739", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vnfconfig/v1/configuration", 
+            "id": "6a41797b-464c-451d-abf1-91bc021143cb0", 
+            "method": "GET", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1561621264184, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/3?query=/vnfconfig/v1/configuration',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "The client can use this method to read configuration information about a VNF instance and/or its VNFC instances.\n"
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_416", 
+            "collectionId": "c1d68c88-d480-4b5d-8022-07d7d78d7739", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vnfconfig/v1/configuration", 
+            "id": "6a41797b-464c-451d-abf1-91bc021143cb1", 
+            "method": "GET", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1561621264184, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/4?query=/vnfconfig/v1/configuration',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "The client can use this method to read configuration information about a VNF instance and/or its VNFC instances.\n"
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_406", 
+            "collectionId": "c1d68c88-d480-4b5d-8022-07d7d78d7739", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vnfconfig/v1/configuration", 
+            "id": "6a41797b-464c-451d-abf1-91bc021143cb2", 
+            "method": "GET", 
+            "headers": "Accept: text/css\nContent-Type: application/json\n\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1561621264184, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/5?query=/vnfconfig/v1/configuration',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "The client can use this method to read configuration information about a VNF instance and/or its VNFC instances.\n"
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_405", 
+            "collectionId": "c1d68c88-d480-4b5d-8022-07d7d78d7739", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vnfconfig/v1/configuration", 
+            "id": "6a41797b-464c-451d-abf1-91bc021143cb3", 
+            "method": "GET", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1561621264184, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/6?query=/vnfconfig/v1/configuration',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "The client can use this method to read configuration information about a VNF instance and/or its VNFC instances.\n"
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_404", 
+            "collectionId": "c1d68c88-d480-4b5d-8022-07d7d78d7739", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vnfconfig/v1/configurationnoitarugifnoc", 
+            "id": "6a41797b-464c-451d-abf1-91bc021143cb4", 
+            "method": "GET", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1561621264184, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/7?query=/vnfconfig/v1/configurationnoitarugifnoc',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "The client can use this method to read configuration information about a VNF instance and/or its VNFC instances.\n"
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_403", 
+            "collectionId": "c1d68c88-d480-4b5d-8022-07d7d78d7739", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vnfconfig/v1/configuration", 
+            "id": "6a41797b-464c-451d-abf1-91bc021143cb5", 
+            "method": "GET", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1561621264184, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/8?query=/vnfconfig/v1/configuration',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "The client can use this method to read configuration information about a VNF instance and/or its VNFC instances.\n"
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_500", 
+            "collectionId": "c1d68c88-d480-4b5d-8022-07d7d78d7739", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vnfconfig/v1/configuration", 
+            "id": "6a41797b-464c-451d-abf1-91bc021143cb6", 
+            "method": "GET", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1561621264184, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/9?query=/vnfconfig/v1/configuration',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "The client can use this method to read configuration information about a VNF instance and/or its VNFC instances.\n"
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_401", 
+            "collectionId": "c1d68c88-d480-4b5d-8022-07d7d78d7739", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vnfconfig/v1/configuration", 
+            "id": "6a41797b-464c-451d-abf1-91bc021143cb7", 
+            "method": "GET", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1561621264184, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/10?query=/vnfconfig/v1/configuration',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "The client can use this method to read configuration information about a VNF instance and/or its VNFC instances.\n"
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_400", 
+            "collectionId": "c1d68c88-d480-4b5d-8022-07d7d78d7739", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vnfconfig/v1/configurations", 
+            "id": "6a41797b-464c-451d-abf1-91bc021143cb8", 
+            "method": "GET", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1561621264184, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/11?query=/vnfconfig/v1/configurations',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "The client can use this method to read configuration information about a VNF instance and/or its VNFC instances.\n"
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_422", 
+            "collectionId": "c1d68c88-d480-4b5d-8022-07d7d78d7739", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vnfconfig/v1/configuration", 
+            "id": "6a41797b-464c-451d-abf1-91bc021143cb9", 
+            "method": "GET", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1561621264184, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/12?query=/vnfconfig/v1/configuration',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "The client can use this method to read configuration information about a VNF instance and/or its VNFC instances.\n"
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_503", 
+            "collectionId": "c1d68c88-d480-4b5d-8022-07d7d78d7739", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vnfconfig/v1/configuration", 
+            "id": "6a41797b-464c-451d-abf1-91bc021143cb10", 
+            "method": "GET", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1561621264184, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/13?query=/vnfconfig/v1/configuration',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "The client can use this method to read configuration information about a VNF instance and/or its VNFC instances.\n"
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_409", 
+            "collectionId": "c1d68c88-d480-4b5d-8022-07d7d78d7739", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vnfconfig/v1/configuration", 
+            "id": "6a41797b-464c-451d-abf1-91bc021143cb11", 
+            "method": "GET", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1561621264184, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/14?query=/vnfconfig/v1/configuration',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "The client can use this method to read configuration information about a VNF instance and/or its VNFC instances.\n"
+        }, 
+        {
+            "dataMode": "raw", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_200", 
+            "collectionId": "c1d68c88-d480-4b5d-8022-07d7d78d7739", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vnfconfig/v1/configuration", 
+            "id": "108dd679-8da3-42ee-a188-1ade269b38b312", 
+            "method": "PATCH", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": "{\n    \"vnfConfigurationData\": {\n        \"extCpConfig\": {\n            \"cpdId\": \"cpdid\",\n            \"cpId\": \"cpid\",\n            \"addresses\": [\n                {\n                    \"useDynamicAddress\": true,\n                    \"port\": 0,\n                    \"address\": {\n                        \"macAddress\": \"macaddress\",\n                        \"ipAddress\": \"ipaddress\"\n                    }\n                }\n            ]\n        },\n        \"vnfSpecificData\": {},\n        \"dhcpServer\": \"dhcpserver\"\n    },\n    \"vnfcConfigurationData\": [\n        {\n            \"vnfcSpecificData\": {},\n            \"vnfcInstanceId\": \"vnfcinstanceid\",\n            \"dhcpServer\": \"dhcpserver\",\n            \"intCpConfig\": [\n                {\n                    \"cpdId\": \"cpdid\",\n                    \"cpId\": \"cpid\",\n                    \"addresses\": [\n                        {\n                            \"useDynamicAddress\": true,\n                            \"port\": 0,\n                            \"address\": {\n                                \"macAddress\": \"macaddress\",\n                                \"ipAddress\": \"ipaddress\"\n                            }\n                        }\n                    ]\n                }\n            ]\n        }\n    ]\n}", 
+            "time": 1561621264184, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/15?query=/vnfconfig/v1/configuration',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "This method sets or modifies a configuration resource."
+        }, 
+        {
+            "dataMode": "raw", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_412", 
+            "collectionId": "c1d68c88-d480-4b5d-8022-07d7d78d7739", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vnfconfig/v1/configuration", 
+            "id": "108dd679-8da3-42ee-a188-1ade269b38b313", 
+            "method": "PATCH", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": "{\n    \"vnfConfigurationData\": {\n        \"extCpConfig\": {\n            \"cpdId\": \"cpdid\",\n            \"cpId\": \"cpid\",\n            \"addresses\": [\n                {\n                    \"useDynamicAddress\": true,\n                    \"port\": 0,\n                    \"address\": {\n                        \"macAddress\": \"macaddress\",\n                        \"ipAddress\": \"ipaddress\"\n                    }\n                }\n            ]\n        },\n        \"vnfSpecificData\": {},\n        \"dhcpServer\": \"dhcpserver\"\n    },\n    \"vnfcConfigurationData\": [\n        {\n            \"vnfcSpecificData\": {},\n            \"vnfcInstanceId\": \"vnfcinstanceid\",\n            \"dhcpServer\": \"dhcpserver\",\n            \"intCpConfig\": [\n                {\n                    \"cpdId\": \"cpdid\",\n                    \"cpId\": \"cpid\",\n                    \"addresses\": [\n                        {\n                            \"useDynamicAddress\": true,\n                            \"port\": 0,\n                            \"address\": {\n                                \"macAddress\": \"macaddress\",\n                                \"ipAddress\": \"ipaddress\"\n                            }\n                        }\n                    ]\n                }\n            ]\n        }\n    ]\n}", 
+            "time": 1561621264184, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/16?query=/vnfconfig/v1/configuration',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "This method sets or modifies a configuration resource."
+        }, 
+        {
+            "dataMode": "raw", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_416", 
+            "collectionId": "c1d68c88-d480-4b5d-8022-07d7d78d7739", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vnfconfig/v1/configuration", 
+            "id": "108dd679-8da3-42ee-a188-1ade269b38b314", 
+            "method": "PATCH", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": "{\n    \"vnfConfigurationData\": {\n        \"extCpConfig\": {\n            \"cpdId\": \"cpdid\",\n            \"cpId\": \"cpid\",\n            \"addresses\": [\n                {\n                    \"useDynamicAddress\": true,\n                    \"port\": 0,\n                    \"address\": {\n                        \"macAddress\": \"macaddress\",\n                        \"ipAddress\": \"ipaddress\"\n                    }\n                }\n            ]\n        },\n        \"vnfSpecificData\": {},\n        \"dhcpServer\": \"dhcpserver\"\n    },\n    \"vnfcConfigurationData\": [\n        {\n            \"vnfcSpecificData\": {},\n            \"vnfcInstanceId\": \"vnfcinstanceid\",\n            \"dhcpServer\": \"dhcpserver\",\n            \"intCpConfig\": [\n                {\n                    \"cpdId\": \"cpdid\",\n                    \"cpId\": \"cpid\",\n                    \"addresses\": [\n                        {\n                            \"useDynamicAddress\": true,\n                            \"port\": 0,\n                            \"address\": {\n                                \"macAddress\": \"macaddress\",\n                                \"ipAddress\": \"ipaddress\"\n                            }\n                        }\n                    ]\n                }\n            ]\n        }\n    ]\n}", 
+            "time": 1561621264184, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/17?query=/vnfconfig/v1/configuration',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "This method sets or modifies a configuration resource."
+        }, 
+        {
+            "dataMode": "raw", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_406", 
+            "collectionId": "c1d68c88-d480-4b5d-8022-07d7d78d7739", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vnfconfig/v1/configuration", 
+            "id": "108dd679-8da3-42ee-a188-1ade269b38b315", 
+            "method": "PATCH", 
+            "headers": "Accept: text/css\nContent-Type: application/json\n\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": "{\n    \"vnfConfigurationData\": {\n        \"extCpConfig\": {\n            \"cpdId\": \"cpdid\",\n            \"cpId\": \"cpid\",\n            \"addresses\": [\n                {\n                    \"useDynamicAddress\": true,\n                    \"port\": 0,\n                    \"address\": {\n                        \"macAddress\": \"macaddress\",\n                        \"ipAddress\": \"ipaddress\"\n                    }\n                }\n            ]\n        },\n        \"vnfSpecificData\": {},\n        \"dhcpServer\": \"dhcpserver\"\n    },\n    \"vnfcConfigurationData\": [\n        {\n            \"vnfcSpecificData\": {},\n            \"vnfcInstanceId\": \"vnfcinstanceid\",\n            \"dhcpServer\": \"dhcpserver\",\n            \"intCpConfig\": [\n                {\n                    \"cpdId\": \"cpdid\",\n                    \"cpId\": \"cpid\",\n                    \"addresses\": [\n                        {\n                            \"useDynamicAddress\": true,\n                            \"port\": 0,\n                            \"address\": {\n                                \"macAddress\": \"macaddress\",\n                                \"ipAddress\": \"ipaddress\"\n                            }\n                        }\n                    ]\n                }\n            ]\n        }\n    ]\n}", 
+            "time": 1561621264184, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/18?query=/vnfconfig/v1/configuration',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "This method sets or modifies a configuration resource."
+        }, 
+        {
+            "dataMode": "raw", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_405", 
+            "collectionId": "c1d68c88-d480-4b5d-8022-07d7d78d7739", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vnfconfig/v1/configuration", 
+            "id": "108dd679-8da3-42ee-a188-1ade269b38b316", 
+            "method": "PATCH", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": "{\n    \"vnfConfigurationData\": {\n        \"extCpConfig\": {\n            \"cpdId\": \"cpdid\",\n            \"cpId\": \"cpid\",\n            \"addresses\": [\n                {\n                    \"useDynamicAddress\": true,\n                    \"port\": 0,\n                    \"address\": {\n                        \"macAddress\": \"macaddress\",\n                        \"ipAddress\": \"ipaddress\"\n                    }\n                }\n            ]\n        },\n        \"vnfSpecificData\": {},\n        \"dhcpServer\": \"dhcpserver\"\n    },\n    \"vnfcConfigurationData\": [\n        {\n            \"vnfcSpecificData\": {},\n            \"vnfcInstanceId\": \"vnfcinstanceid\",\n            \"dhcpServer\": \"dhcpserver\",\n            \"intCpConfig\": [\n                {\n                    \"cpdId\": \"cpdid\",\n                    \"cpId\": \"cpid\",\n                    \"addresses\": [\n                        {\n                            \"useDynamicAddress\": true,\n                            \"port\": 0,\n                            \"address\": {\n                                \"macAddress\": \"macaddress\",\n                                \"ipAddress\": \"ipaddress\"\n                            }\n                        }\n                    ]\n                }\n            ]\n        }\n    ]\n}", 
+            "time": 1561621264184, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/19?query=/vnfconfig/v1/configuration',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "This method sets or modifies a configuration resource."
+        }, 
+        {
+            "dataMode": "raw", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_404", 
+            "collectionId": "c1d68c88-d480-4b5d-8022-07d7d78d7739", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vnfconfig/v1/configurationnoitarugifnoc", 
+            "id": "108dd679-8da3-42ee-a188-1ade269b38b317", 
+            "method": "PATCH", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": "{\n    \"vnfConfigurationData\": {\n        \"extCpConfig\": {\n            \"cpdId\": \"cpdid\",\n            \"cpId\": \"cpid\",\n            \"addresses\": [\n                {\n                    \"useDynamicAddress\": true,\n                    \"port\": 0,\n                    \"address\": {\n                        \"macAddress\": \"macaddress\",\n                        \"ipAddress\": \"ipaddress\"\n                    }\n                }\n            ]\n        },\n        \"vnfSpecificData\": {},\n        \"dhcpServer\": \"dhcpserver\"\n    },\n    \"vnfcConfigurationData\": [\n        {\n            \"vnfcSpecificData\": {},\n            \"vnfcInstanceId\": \"vnfcinstanceid\",\n            \"dhcpServer\": \"dhcpserver\",\n            \"intCpConfig\": [\n                {\n                    \"cpdId\": \"cpdid\",\n                    \"cpId\": \"cpid\",\n                    \"addresses\": [\n                        {\n                            \"useDynamicAddress\": true,\n                            \"port\": 0,\n                            \"address\": {\n                                \"macAddress\": \"macaddress\",\n                                \"ipAddress\": \"ipaddress\"\n                            }\n                        }\n                    ]\n                }\n            ]\n        }\n    ]\n}", 
+            "time": 1561621264184, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/20?query=/vnfconfig/v1/configurationnoitarugifnoc',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "This method sets or modifies a configuration resource."
+        }, 
+        {
+            "dataMode": "raw", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_403", 
+            "collectionId": "c1d68c88-d480-4b5d-8022-07d7d78d7739", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vnfconfig/v1/configuration", 
+            "id": "108dd679-8da3-42ee-a188-1ade269b38b318", 
+            "method": "PATCH", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": "{\n    \"vnfConfigurationData\": {\n        \"extCpConfig\": {\n            \"cpdId\": \"cpdid\",\n            \"cpId\": \"cpid\",\n            \"addresses\": [\n                {\n                    \"useDynamicAddress\": true,\n                    \"port\": 0,\n                    \"address\": {\n                        \"macAddress\": \"macaddress\",\n                        \"ipAddress\": \"ipaddress\"\n                    }\n                }\n            ]\n        },\n        \"vnfSpecificData\": {},\n        \"dhcpServer\": \"dhcpserver\"\n    },\n    \"vnfcConfigurationData\": [\n        {\n            \"vnfcSpecificData\": {},\n            \"vnfcInstanceId\": \"vnfcinstanceid\",\n            \"dhcpServer\": \"dhcpserver\",\n            \"intCpConfig\": [\n                {\n                    \"cpdId\": \"cpdid\",\n                    \"cpId\": \"cpid\",\n                    \"addresses\": [\n                        {\n                            \"useDynamicAddress\": true,\n                            \"port\": 0,\n                            \"address\": {\n                                \"macAddress\": \"macaddress\",\n                                \"ipAddress\": \"ipaddress\"\n                            }\n                        }\n                    ]\n                }\n            ]\n        }\n    ]\n}", 
+            "time": 1561621264184, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/21?query=/vnfconfig/v1/configuration',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "This method sets or modifies a configuration resource."
+        }, 
+        {
+            "dataMode": "raw", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_500", 
+            "collectionId": "c1d68c88-d480-4b5d-8022-07d7d78d7739", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vnfconfig/v1/configuration", 
+            "id": "108dd679-8da3-42ee-a188-1ade269b38b319", 
+            "method": "PATCH", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": "{\n    \"vnfConfigurationData\": {\n        \"extCpConfig\": {\n            \"cpdId\": \"cpdid\",\n            \"cpId\": \"cpid\",\n            \"addresses\": [\n                {\n                    \"useDynamicAddress\": true,\n                    \"port\": 0,\n                    \"address\": {\n                        \"macAddress\": \"macaddress\",\n                        \"ipAddress\": \"ipaddress\"\n                    }\n                }\n            ]\n        },\n        \"vnfSpecificData\": {},\n        \"dhcpServer\": \"dhcpserver\"\n    },\n    \"vnfcConfigurationData\": [\n        {\n            \"vnfcSpecificData\": {},\n            \"vnfcInstanceId\": \"vnfcinstanceid\",\n            \"dhcpServer\": \"dhcpserver\",\n            \"intCpConfig\": [\n                {\n                    \"cpdId\": \"cpdid\",\n                    \"cpId\": \"cpid\",\n                    \"addresses\": [\n                        {\n                            \"useDynamicAddress\": true,\n                            \"port\": 0,\n                            \"address\": {\n                                \"macAddress\": \"macaddress\",\n                                \"ipAddress\": \"ipaddress\"\n                            }\n                        }\n                    ]\n                }\n            ]\n        }\n    ]\n}", 
+            "time": 1561621264184, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/22?query=/vnfconfig/v1/configuration',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "This method sets or modifies a configuration resource."
+        }, 
+        {
+            "dataMode": "raw", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_401", 
+            "collectionId": "c1d68c88-d480-4b5d-8022-07d7d78d7739", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vnfconfig/v1/configuration", 
+            "id": "108dd679-8da3-42ee-a188-1ade269b38b320", 
+            "method": "PATCH", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": "{\n    \"vnfConfigurationData\": {\n        \"extCpConfig\": {\n            \"cpdId\": \"cpdid\",\n            \"cpId\": \"cpid\",\n            \"addresses\": [\n                {\n                    \"useDynamicAddress\": true,\n                    \"port\": 0,\n                    \"address\": {\n                        \"macAddress\": \"macaddress\",\n                        \"ipAddress\": \"ipaddress\"\n                    }\n                }\n            ]\n        },\n        \"vnfSpecificData\": {},\n        \"dhcpServer\": \"dhcpserver\"\n    },\n    \"vnfcConfigurationData\": [\n        {\n            \"vnfcSpecificData\": {},\n            \"vnfcInstanceId\": \"vnfcinstanceid\",\n            \"dhcpServer\": \"dhcpserver\",\n            \"intCpConfig\": [\n                {\n                    \"cpdId\": \"cpdid\",\n                    \"cpId\": \"cpid\",\n                    \"addresses\": [\n                        {\n                            \"useDynamicAddress\": true,\n                            \"port\": 0,\n                            \"address\": {\n                                \"macAddress\": \"macaddress\",\n                                \"ipAddress\": \"ipaddress\"\n                            }\n                        }\n                    ]\n                }\n            ]\n        }\n    ]\n}", 
+            "time": 1561621264184, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/23?query=/vnfconfig/v1/configuration',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "This method sets or modifies a configuration resource."
+        }, 
+        {
+            "dataMode": "raw", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_400", 
+            "collectionId": "c1d68c88-d480-4b5d-8022-07d7d78d7739", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vnfconfig/v1/configurations", 
+            "id": "108dd679-8da3-42ee-a188-1ade269b38b321", 
+            "method": "PATCH", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": "{\n    \"vnfConfigurationData\": {\n        \"extCpConfig\": {\n            \"cpdId\": \"cpdid\",\n            \"cpId\": \"cpid\",\n            \"addresses\": [\n                {\n                    \"useDynamicAddress\": true,\n                    \"port\": 0,\n                    \"address\": {\n                        \"macAddress\": \"macaddress\",\n                        \"ipAddress\": \"ipaddress\"\n                    }\n                }\n            ]\n        },\n        \"vnfSpecificData\": {},\n        \"dhcpServer\": \"dhcpserver\"\n    },\n    \"vnfcConfigurationData\": [\n        {\n            \"vnfcSpecificData\": {},\n            \"vnfcInstanceId\": \"vnfcinstanceid\",\n            \"dhcpServer\": \"dhcpserver\",\n            \"intCpConfig\": [\n                {\n                    \"cpdId\": \"cpdid\",\n                    \"cpId\": \"cpid\",\n                    \"addresses\": [\n                        {\n                            \"useDynamicAddress\": true,\n                            \"port\": 0,\n                            \"address\": {\n                                \"macAddress\": \"macaddress\",\n                                \"ipAddress\": \"ipaddress\"\n                            }\n                        }\n                    ]\n                }\n            ]\n        }\n    ]\n}", 
+            "time": 1561621264184, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/24?query=/vnfconfig/v1/configurations',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "This method sets or modifies a configuration resource."
+        }, 
+        {
+            "dataMode": "raw", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_422", 
+            "collectionId": "c1d68c88-d480-4b5d-8022-07d7d78d7739", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vnfconfig/v1/configuration", 
+            "id": "108dd679-8da3-42ee-a188-1ade269b38b322", 
+            "method": "PATCH", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": "{\n    \"vnfConfigurationDatas\": {\n        \"extCpConfigs\": {\n            \"cpdIds\": \"cpdid\",\n            \"cpIds\": \"cpid\",\n            \"addressess\": [\n                {\n                    \"useDynamicAddresss\": true,\n                    \"ports\": 0,\n                    \"addresss\": {\n                        \"macAddresss\": \"macaddress\",\n                        \"ipAddresss\": \"ipaddress\"\n                    }\n                }\n            ]\n        },\n        \"vnfSpecificDatas\": {},\n        \"dhcpServers\": \"dhcpserver\"\n    },\n    \"vnfcConfigurationDatas\": [\n        {\n            \"vnfcSpecificDatas\": {},\n            \"vnfcInstanceIds\": \"vnfcinstanceid\",\n            \"dhcpServers\": \"dhcpserver\",\n            \"intCpConfigs\": [\n                {\n                    \"cpdIds\": \"cpdid\",\n                    \"cpIds\": \"cpid\",\n                    \"addressess\": [\n                        {\n                            \"useDynamicAddresss\": true,\n                            \"ports\": 0,\n                            \"addresss\": {\n                                \"macAddresss\": \"macaddress\",\n                                \"ipAddresss\": \"ipaddress\"\n                            }\n                        }\n                    ]\n                }\n            ]\n        }\n    ]\n}", 
+            "time": 1561621264184, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/25?query=/vnfconfig/v1/configuration',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "This method sets or modifies a configuration resource."
+        }, 
+        {
+            "dataMode": "raw", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_503", 
+            "collectionId": "c1d68c88-d480-4b5d-8022-07d7d78d7739", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vnfconfig/v1/configuration", 
+            "id": "108dd679-8da3-42ee-a188-1ade269b38b323", 
+            "method": "PATCH", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": "{\n    \"vnfConfigurationData\": {\n        \"extCpConfig\": {\n            \"cpdId\": \"cpdid\",\n            \"cpId\": \"cpid\",\n            \"addresses\": [\n                {\n                    \"useDynamicAddress\": true,\n                    \"port\": 0,\n                    \"address\": {\n                        \"macAddress\": \"macaddress\",\n                        \"ipAddress\": \"ipaddress\"\n                    }\n                }\n            ]\n        },\n        \"vnfSpecificData\": {},\n        \"dhcpServer\": \"dhcpserver\"\n    },\n    \"vnfcConfigurationData\": [\n        {\n            \"vnfcSpecificData\": {},\n            \"vnfcInstanceId\": \"vnfcinstanceid\",\n            \"dhcpServer\": \"dhcpserver\",\n            \"intCpConfig\": [\n                {\n                    \"cpdId\": \"cpdid\",\n                    \"cpId\": \"cpid\",\n                    \"addresses\": [\n                        {\n                            \"useDynamicAddress\": true,\n                            \"port\": 0,\n                            \"address\": {\n                                \"macAddress\": \"macaddress\",\n                                \"ipAddress\": \"ipaddress\"\n                            }\n                        }\n                    ]\n                }\n            ]\n        }\n    ]\n}", 
+            "time": 1561621264184, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/26?query=/vnfconfig/v1/configuration',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "This method sets or modifies a configuration resource."
+        }, 
+        {
+            "dataMode": "raw", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_409", 
+            "collectionId": "c1d68c88-d480-4b5d-8022-07d7d78d7739", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vnfconfig/v1/configuration", 
+            "id": "108dd679-8da3-42ee-a188-1ade269b38b324", 
+            "method": "PATCH", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": "{\n    \"vnfConfigurationData\": {\n        \"extCpConfig\": {\n            \"cpdId\": \"cpdid\",\n            \"cpId\": \"cpid\",\n            \"addresses\": [\n                {\n                    \"useDynamicAddress\": true,\n                    \"port\": 0,\n                    \"address\": {\n                        \"macAddress\": \"macaddress\",\n                        \"ipAddress\": \"ipaddress\"\n                    }\n                }\n            ]\n        },\n        \"vnfSpecificData\": {},\n        \"dhcpServer\": \"dhcpserver\"\n    },\n    \"vnfcConfigurationData\": [\n        {\n            \"vnfcSpecificData\": {},\n            \"vnfcInstanceId\": \"vnfcinstanceid\",\n            \"dhcpServer\": \"dhcpserver\",\n            \"intCpConfig\": [\n                {\n                    \"cpdId\": \"cpdid\",\n                    \"cpId\": \"cpid\",\n                    \"addresses\": [\n                        {\n                            \"useDynamicAddress\": true,\n                            \"port\": 0,\n                            \"address\": {\n                                \"macAddress\": \"macaddress\",\n                                \"ipAddress\": \"ipaddress\"\n                            }\n                        }\n                    ]\n                }\n            ]\n        }\n    ]\n}", 
+            "time": 1561621264184, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/27?query=/vnfconfig/v1/configuration',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "This method sets or modifies a configuration resource."
+        }
+    ], 
+    "id": "c1d68c88-d480-4b5d-8022-07d7d78d7739", 
+    "name": "SOL002 - VNF Configuration interface"
+}

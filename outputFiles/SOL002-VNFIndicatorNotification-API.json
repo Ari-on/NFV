@@ -1,0 +1,2024 @@
+{
+    "folders": [
+        {
+            "description": "Folder for notificationendpoint", 
+            "collection_name": "SOL002 - VNF Indicator Notification Endpoint interface", 
+            "collection": "ecc2df89-427b-4308-a7a8-ef92ef67a1cd", 
+            "id": "51d03d41-16b7-48fc-b47f-df382d8e21e4", 
+            "collection_id": "ecc2df89-427b-4308-a7a8-ef92ef67a1cd", 
+            "order": [
+                "cf220773-63d5-456b-a627-3b6f4ddeea48", 
+                "69099290-8af7-4c69-bbcf-9dc7a24d9758", 
+                "cf220773-63d5-456b-a627-3b6f4ddeea480", 
+                "cf220773-63d5-456b-a627-3b6f4ddeea481", 
+                "cf220773-63d5-456b-a627-3b6f4ddeea482", 
+                "cf220773-63d5-456b-a627-3b6f4ddeea483", 
+                "cf220773-63d5-456b-a627-3b6f4ddeea484", 
+                "cf220773-63d5-456b-a627-3b6f4ddeea485", 
+                "cf220773-63d5-456b-a627-3b6f4ddeea486", 
+                "cf220773-63d5-456b-a627-3b6f4ddeea487", 
+                "cf220773-63d5-456b-a627-3b6f4ddeea488", 
+                "cf220773-63d5-456b-a627-3b6f4ddeea489", 
+                "cf220773-63d5-456b-a627-3b6f4ddeea4810", 
+                "cf220773-63d5-456b-a627-3b6f4ddeea4811", 
+                "69099290-8af7-4c69-bbcf-9dc7a24d975812", 
+                "69099290-8af7-4c69-bbcf-9dc7a24d975813", 
+                "69099290-8af7-4c69-bbcf-9dc7a24d975814", 
+                "69099290-8af7-4c69-bbcf-9dc7a24d975815", 
+                "69099290-8af7-4c69-bbcf-9dc7a24d975816", 
+                "69099290-8af7-4c69-bbcf-9dc7a24d975817", 
+                "69099290-8af7-4c69-bbcf-9dc7a24d975818", 
+                "69099290-8af7-4c69-bbcf-9dc7a24d975819", 
+                "69099290-8af7-4c69-bbcf-9dc7a24d975820", 
+                "69099290-8af7-4c69-bbcf-9dc7a24d975821", 
+                "69099290-8af7-4c69-bbcf-9dc7a24d975822", 
+                "69099290-8af7-4c69-bbcf-9dc7a24d975823"
+            ], 
+            "name": "notificationendpoint"
+        }
+    ], 
+    "description": "VNF Indicator Notification Endpoint interface of ETSI NFV SOL002\n\nIMPORTANT: Please note that this file might be not aligned to the current version of the ETSI Group Specification it refers to. In case of discrepancies the published ETSI Group Specification takes precedence.\n\nPlease report bugs to https://forge.etsi.org/bugzilla/buglist.cgi?component=Nfv-Openapis&list_id=61&product=NFV&resolution=---\n", 
+    "timestamp": 1413302258635, 
+    "order": [], 
+    "synced": false, 
+    "requests": [
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "collectionId": "ecc2df89-427b-4308-a7a8-ef92ef67a1cd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/callback/v1/notificationendpoint", 
+            "description": "The GET method allows the server to test the notification endpoint that is provided by the client, e.g. during subscription.\n", 
+            "id": "cf220773-63d5-456b-a627-3b6f4ddeea48", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1561628558254, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "method": "GET", 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/1?query=/callback/v1/notificationendpoint',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "name": "Test notification endpoint."
+        }, 
+        {
+            "dataMode": "raw", 
+            "tests": "", 
+            "responses": [], 
+            "collectionId": "ecc2df89-427b-4308-a7a8-ef92ef67a1cd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/callback/v1/notificationendpoint", 
+            "description": "The API producer can use this resource to send notifications related to VNF indicator value changes to a subscribed API consumer, which has provided the URI of this resource during the subscription process. The POST method delivers a notification from the server to the client.\n", 
+            "id": "69099290-8af7-4c69-bbcf-9dc7a24d9758", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": "{\n    \"vnfInstanceId\": \"vnfinstanceid\",\n    \"vnfIndicatorId\": \"vnfindicatorid\",\n    \"name\": \"name\",\n    \"timeStamp\": \"2019-06-27t09:42:38.257z\",\n    \"notificationType\": \"notificationtype\",\n    \"value\": {},\n    \"_links\": {\n        \"vnfInstance\": {\n            \"href\": \"href\"\n        },\n        \"subscription\": {\n            \"href\": \"href\"\n        }\n    },\n    \"subscriptionId\": \"subscriptionid\",\n    \"id\": \"id\"\n}", 
+            "time": 1561628558255, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "method": "POST", 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_csv/1?query=/callback/v1/notificationendpoint',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "name": "Notification endpoint"
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_204", 
+            "collectionId": "ecc2df89-427b-4308-a7a8-ef92ef67a1cd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/callback/v1/notificationendpoint", 
+            "id": "cf220773-63d5-456b-a627-3b6f4ddeea480", 
+            "method": "GET", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1561628558254, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/3?query=/callback/v1/notificationendpoint',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "The GET method allows the server to test the notification endpoint that is provided by the client, e.g. during subscription.\n"
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_416", 
+            "collectionId": "ecc2df89-427b-4308-a7a8-ef92ef67a1cd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/callback/v1/notificationendpoint", 
+            "id": "cf220773-63d5-456b-a627-3b6f4ddeea481", 
+            "method": "GET", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1561628558254, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/4?query=/callback/v1/notificationendpoint',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "The GET method allows the server to test the notification endpoint that is provided by the client, e.g. during subscription.\n"
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_406", 
+            "collectionId": "ecc2df89-427b-4308-a7a8-ef92ef67a1cd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/callback/v1/notificationendpoint", 
+            "id": "cf220773-63d5-456b-a627-3b6f4ddeea482", 
+            "method": "GET", 
+            "headers": "Accept: text/css\nContent-Type: application/json\n\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1561628558254, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/5?query=/callback/v1/notificationendpoint',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "The GET method allows the server to test the notification endpoint that is provided by the client, e.g. during subscription.\n"
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_405", 
+            "collectionId": "ecc2df89-427b-4308-a7a8-ef92ef67a1cd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/callback/v1/notificationendpoint", 
+            "id": "cf220773-63d5-456b-a627-3b6f4ddeea483", 
+            "method": "GET", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1561628558254, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/6?query=/callback/v1/notificationendpoint',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "The GET method allows the server to test the notification endpoint that is provided by the client, e.g. during subscription.\n"
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_404", 
+            "collectionId": "ecc2df89-427b-4308-a7a8-ef92ef67a1cd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/callback/v1/notificationendpointtniopdnenoitacifiton", 
+            "id": "cf220773-63d5-456b-a627-3b6f4ddeea484", 
+            "method": "GET", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1561628558254, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/7?query=/callback/v1/notificationendpointtniopdnenoitacifiton',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "The GET method allows the server to test the notification endpoint that is provided by the client, e.g. during subscription.\n"
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_403", 
+            "collectionId": "ecc2df89-427b-4308-a7a8-ef92ef67a1cd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/callback/v1/notificationendpoint", 
+            "id": "cf220773-63d5-456b-a627-3b6f4ddeea485", 
+            "method": "GET", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1561628558254, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/8?query=/callback/v1/notificationendpoint',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "The GET method allows the server to test the notification endpoint that is provided by the client, e.g. during subscription.\n"
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_500", 
+            "collectionId": "ecc2df89-427b-4308-a7a8-ef92ef67a1cd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/callback/v1/notificationendpoint", 
+            "id": "cf220773-63d5-456b-a627-3b6f4ddeea486", 
+            "method": "GET", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1561628558254, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/9?query=/callback/v1/notificationendpoint',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "The GET method allows the server to test the notification endpoint that is provided by the client, e.g. during subscription.\n"
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_401", 
+            "collectionId": "ecc2df89-427b-4308-a7a8-ef92ef67a1cd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/callback/v1/notificationendpoint", 
+            "id": "cf220773-63d5-456b-a627-3b6f4ddeea487", 
+            "method": "GET", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1561628558254, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/10?query=/callback/v1/notificationendpoint',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "The GET method allows the server to test the notification endpoint that is provided by the client, e.g. during subscription.\n"
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_400", 
+            "collectionId": "ecc2df89-427b-4308-a7a8-ef92ef67a1cd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/callback/v1/notificationendpoints", 
+            "id": "cf220773-63d5-456b-a627-3b6f4ddeea488", 
+            "method": "GET", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1561628558254, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/11?query=/callback/v1/notificationendpoints',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "The GET method allows the server to test the notification endpoint that is provided by the client, e.g. during subscription.\n"
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_422", 
+            "collectionId": "ecc2df89-427b-4308-a7a8-ef92ef67a1cd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/callback/v1/notificationendpoint", 
+            "id": "cf220773-63d5-456b-a627-3b6f4ddeea489", 
+            "method": "GET", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1561628558254, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/12?query=/callback/v1/notificationendpoint',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "The GET method allows the server to test the notification endpoint that is provided by the client, e.g. during subscription.\n"
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_503", 
+            "collectionId": "ecc2df89-427b-4308-a7a8-ef92ef67a1cd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/callback/v1/notificationendpoint", 
+            "id": "cf220773-63d5-456b-a627-3b6f4ddeea4810", 
+            "method": "GET", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1561628558254, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/13?query=/callback/v1/notificationendpoint',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "The GET method allows the server to test the notification endpoint that is provided by the client, e.g. during subscription.\n"
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_409", 
+            "collectionId": "ecc2df89-427b-4308-a7a8-ef92ef67a1cd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/callback/v1/notificationendpoint", 
+            "id": "cf220773-63d5-456b-a627-3b6f4ddeea4811", 
+            "method": "GET", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1561628558254, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/14?query=/callback/v1/notificationendpoint',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "The GET method allows the server to test the notification endpoint that is provided by the client, e.g. during subscription.\n"
+        }, 
+        {
+            "dataMode": "raw", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_204", 
+            "collectionId": "ecc2df89-427b-4308-a7a8-ef92ef67a1cd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/callback/v1/notificationendpoint", 
+            "id": "69099290-8af7-4c69-bbcf-9dc7a24d975812", 
+            "method": "POST", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": "{\n    \"vnfInstanceId\": \"vnfinstanceid\",\n    \"vnfIndicatorId\": \"vnfindicatorid\",\n    \"name\": \"name\",\n    \"timeStamp\": \"2019-06-27t09:42:38.257z\",\n    \"notificationType\": \"notificationtype\",\n    \"value\": {},\n    \"_links\": {\n        \"vnfInstance\": {\n            \"href\": \"href\"\n        },\n        \"subscription\": {\n            \"href\": \"href\"\n        }\n    },\n    \"subscriptionId\": \"subscriptionid\",\n    \"id\": \"id\"\n}", 
+            "time": 1561628558255, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_csv/1?query=/callback/v1/notificationendpoint',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "The API producer can use this resource to send notifications related to VNF indicator value changes to a subscribed API consumer, which has provided the URI of this resource during the subscription process. The POST method delivers a notification from the server to the client.\n"
+        }, 
+        {
+            "dataMode": "raw", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_416", 
+            "collectionId": "ecc2df89-427b-4308-a7a8-ef92ef67a1cd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/callback/v1/notificationendpoint", 
+            "id": "69099290-8af7-4c69-bbcf-9dc7a24d975813", 
+            "method": "POST", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": "{\n    \"vnfInstanceId\": \"vnfinstanceid\",\n    \"vnfIndicatorId\": \"vnfindicatorid\",\n    \"name\": \"name\",\n    \"timeStamp\": \"2019-06-27t09:42:38.257z\",\n    \"notificationType\": \"notificationtype\",\n    \"value\": {},\n    \"_links\": {\n        \"vnfInstance\": {\n            \"href\": \"href\"\n        },\n        \"subscription\": {\n            \"href\": \"href\"\n        }\n    },\n    \"subscriptionId\": \"subscriptionid\",\n    \"id\": \"id\"\n}", 
+            "time": 1561628558255, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_csv/1?query=/callback/v1/notificationendpoint',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "The API producer can use this resource to send notifications related to VNF indicator value changes to a subscribed API consumer, which has provided the URI of this resource during the subscription process. The POST method delivers a notification from the server to the client.\n"
+        }, 
+        {
+            "dataMode": "raw", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_406", 
+            "collectionId": "ecc2df89-427b-4308-a7a8-ef92ef67a1cd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/callback/v1/notificationendpoint", 
+            "id": "69099290-8af7-4c69-bbcf-9dc7a24d975814", 
+            "method": "POST", 
+            "headers": "Accept: text/css\nContent-Type: application/json\n\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": "{\n    \"vnfInstanceId\": \"vnfinstanceid\",\n    \"vnfIndicatorId\": \"vnfindicatorid\",\n    \"name\": \"name\",\n    \"timeStamp\": \"2019-06-27t09:42:38.257z\",\n    \"notificationType\": \"notificationtype\",\n    \"value\": {},\n    \"_links\": {\n        \"vnfInstance\": {\n            \"href\": \"href\"\n        },\n        \"subscription\": {\n            \"href\": \"href\"\n        }\n    },\n    \"subscriptionId\": \"subscriptionid\",\n    \"id\": \"id\"\n}", 
+            "time": 1561628558255, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_csv/1?query=/callback/v1/notificationendpoint',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "The API producer can use this resource to send notifications related to VNF indicator value changes to a subscribed API consumer, which has provided the URI of this resource during the subscription process. The POST method delivers a notification from the server to the client.\n"
+        }, 
+        {
+            "dataMode": "raw", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_405", 
+            "collectionId": "ecc2df89-427b-4308-a7a8-ef92ef67a1cd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/callback/v1/notificationendpoint", 
+            "id": "69099290-8af7-4c69-bbcf-9dc7a24d975815", 
+            "method": "POST", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": "{\n    \"vnfInstanceId\": \"vnfinstanceid\",\n    \"vnfIndicatorId\": \"vnfindicatorid\",\n    \"name\": \"name\",\n    \"timeStamp\": \"2019-06-27t09:42:38.257z\",\n    \"notificationType\": \"notificationtype\",\n    \"value\": {},\n    \"_links\": {\n        \"vnfInstance\": {\n            \"href\": \"href\"\n        },\n        \"subscription\": {\n            \"href\": \"href\"\n        }\n    },\n    \"subscriptionId\": \"subscriptionid\",\n    \"id\": \"id\"\n}", 
+            "time": 1561628558255, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_csv/1?query=/callback/v1/notificationendpoint',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "The API producer can use this resource to send notifications related to VNF indicator value changes to a subscribed API consumer, which has provided the URI of this resource during the subscription process. The POST method delivers a notification from the server to the client.\n"
+        }, 
+        {
+            "dataMode": "raw", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_404", 
+            "collectionId": "ecc2df89-427b-4308-a7a8-ef92ef67a1cd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/callback/v1/notificationendpointtniopdnenoitacifiton", 
+            "id": "69099290-8af7-4c69-bbcf-9dc7a24d975816", 
+            "method": "POST", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": "{\n    \"vnfInstanceId\": \"vnfinstanceid\",\n    \"vnfIndicatorId\": \"vnfindicatorid\",\n    \"name\": \"name\",\n    \"timeStamp\": \"2019-06-27t09:42:38.257z\",\n    \"notificationType\": \"notificationtype\",\n    \"value\": {},\n    \"_links\": {\n        \"vnfInstance\": {\n            \"href\": \"href\"\n        },\n        \"subscription\": {\n            \"href\": \"href\"\n        }\n    },\n    \"subscriptionId\": \"subscriptionid\",\n    \"id\": \"id\"\n}", 
+            "time": 1561628558255, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_csv/1?query=/callback/v1/notificationendpointtniopdnenoitacifiton',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "The API producer can use this resource to send notifications related to VNF indicator value changes to a subscribed API consumer, which has provided the URI of this resource during the subscription process. The POST method delivers a notification from the server to the client.\n"
+        }, 
+        {
+            "dataMode": "raw", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_403", 
+            "collectionId": "ecc2df89-427b-4308-a7a8-ef92ef67a1cd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/callback/v1/notificationendpoint", 
+            "id": "69099290-8af7-4c69-bbcf-9dc7a24d975817", 
+            "method": "POST", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": "{\n    \"vnfInstanceId\": \"vnfinstanceid\",\n    \"vnfIndicatorId\": \"vnfindicatorid\",\n    \"name\": \"name\",\n    \"timeStamp\": \"2019-06-27t09:42:38.257z\",\n    \"notificationType\": \"notificationtype\",\n    \"value\": {},\n    \"_links\": {\n        \"vnfInstance\": {\n            \"href\": \"href\"\n        },\n        \"subscription\": {\n            \"href\": \"href\"\n        }\n    },\n    \"subscriptionId\": \"subscriptionid\",\n    \"id\": \"id\"\n}", 
+            "time": 1561628558255, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_csv/1?query=/callback/v1/notificationendpoint',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "The API producer can use this resource to send notifications related to VNF indicator value changes to a subscribed API consumer, which has provided the URI of this resource during the subscription process. The POST method delivers a notification from the server to the client.\n"
+        }, 
+        {
+            "dataMode": "raw", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_500", 
+            "collectionId": "ecc2df89-427b-4308-a7a8-ef92ef67a1cd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/callback/v1/notificationendpoint", 
+            "id": "69099290-8af7-4c69-bbcf-9dc7a24d975818", 
+            "method": "POST", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": "{\n    \"vnfInstanceId\": \"vnfinstanceid\",\n    \"vnfIndicatorId\": \"vnfindicatorid\",\n    \"name\": \"name\",\n    \"timeStamp\": \"2019-06-27t09:42:38.257z\",\n    \"notificationType\": \"notificationtype\",\n    \"value\": {},\n    \"_links\": {\n        \"vnfInstance\": {\n            \"href\": \"href\"\n        },\n        \"subscription\": {\n            \"href\": \"href\"\n        }\n    },\n    \"subscriptionId\": \"subscriptionid\",\n    \"id\": \"id\"\n}", 
+            "time": 1561628558255, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_csv/1?query=/callback/v1/notificationendpoint',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "The API producer can use this resource to send notifications related to VNF indicator value changes to a subscribed API consumer, which has provided the URI of this resource during the subscription process. The POST method delivers a notification from the server to the client.\n"
+        }, 
+        {
+            "dataMode": "raw", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_401", 
+            "collectionId": "ecc2df89-427b-4308-a7a8-ef92ef67a1cd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/callback/v1/notificationendpoint", 
+            "id": "69099290-8af7-4c69-bbcf-9dc7a24d975819", 
+            "method": "POST", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": "{\n    \"vnfInstanceId\": \"vnfinstanceid\",\n    \"vnfIndicatorId\": \"vnfindicatorid\",\n    \"name\": \"name\",\n    \"timeStamp\": \"2019-06-27t09:42:38.257z\",\n    \"notificationType\": \"notificationtype\",\n    \"value\": {},\n    \"_links\": {\n        \"vnfInstance\": {\n            \"href\": \"href\"\n        },\n        \"subscription\": {\n            \"href\": \"href\"\n        }\n    },\n    \"subscriptionId\": \"subscriptionid\",\n    \"id\": \"id\"\n}", 
+            "time": 1561628558255, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_csv/1?query=/callback/v1/notificationendpoint',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "The API producer can use this resource to send notifications related to VNF indicator value changes to a subscribed API consumer, which has provided the URI of this resource during the subscription process. The POST method delivers a notification from the server to the client.\n"
+        }, 
+        {
+            "dataMode": "raw", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_400", 
+            "collectionId": "ecc2df89-427b-4308-a7a8-ef92ef67a1cd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/callback/v1/notificationendpoints", 
+            "id": "69099290-8af7-4c69-bbcf-9dc7a24d975820", 
+            "method": "POST", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": "{\n    \"vnfInstanceId\": \"vnfinstanceid\",\n    \"vnfIndicatorId\": \"vnfindicatorid\",\n    \"name\": \"name\",\n    \"timeStamp\": \"2019-06-27t09:42:38.257z\",\n    \"notificationType\": \"notificationtype\",\n    \"value\": {},\n    \"_links\": {\n        \"vnfInstance\": {\n            \"href\": \"href\"\n        },\n        \"subscription\": {\n            \"href\": \"href\"\n        }\n    },\n    \"subscriptionId\": \"subscriptionid\",\n    \"id\": \"id\"\n}", 
+            "time": 1561628558255, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_csv/1?query=/callback/v1/notificationendpoints',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "The API producer can use this resource to send notifications related to VNF indicator value changes to a subscribed API consumer, which has provided the URI of this resource during the subscription process. The POST method delivers a notification from the server to the client.\n"
+        }, 
+        {
+            "dataMode": "raw", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_422", 
+            "collectionId": "ecc2df89-427b-4308-a7a8-ef92ef67a1cd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/callback/v1/notificationendpoint", 
+            "id": "69099290-8af7-4c69-bbcf-9dc7a24d975821", 
+            "method": "POST", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": "{\n    \"vnfInstanceIds\": \"vnfinstanceid\",\n    \"vnfIndicatorIds\": \"vnfindicatorid\",\n    \"names\": \"name\",\n    \"timeStamps\": \"2019-06-27t09:42:38.257z\",\n    \"notificationTypes\": \"notificationtype\",\n    \"values\": {},\n    \"_linkss\": {\n        \"vnfInstances\": {\n            \"hrefs\": \"href\"\n        },\n        \"subscriptions\": {\n            \"hrefs\": \"href\"\n        }\n    },\n    \"subscriptionIds\": \"subscriptionid\",\n    \"ids\": \"id\"\n}", 
+            "time": 1561628558255, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_csv/1?query=/callback/v1/notificationendpoint',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "The API producer can use this resource to send notifications related to VNF indicator value changes to a subscribed API consumer, which has provided the URI of this resource during the subscription process. The POST method delivers a notification from the server to the client.\n"
+        }, 
+        {
+            "dataMode": "raw", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_503", 
+            "collectionId": "ecc2df89-427b-4308-a7a8-ef92ef67a1cd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/callback/v1/notificationendpoint", 
+            "id": "69099290-8af7-4c69-bbcf-9dc7a24d975822", 
+            "method": "POST", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": "{\n    \"vnfInstanceId\": \"vnfinstanceid\",\n    \"vnfIndicatorId\": \"vnfindicatorid\",\n    \"name\": \"name\",\n    \"timeStamp\": \"2019-06-27t09:42:38.257z\",\n    \"notificationType\": \"notificationtype\",\n    \"value\": {},\n    \"_links\": {\n        \"vnfInstance\": {\n            \"href\": \"href\"\n        },\n        \"subscription\": {\n            \"href\": \"href\"\n        }\n    },\n    \"subscriptionId\": \"subscriptionid\",\n    \"id\": \"id\"\n}", 
+            "time": 1561628558255, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_csv/1?query=/callback/v1/notificationendpoint',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "The API producer can use this resource to send notifications related to VNF indicator value changes to a subscribed API consumer, which has provided the URI of this resource during the subscription process. The POST method delivers a notification from the server to the client.\n"
+        }, 
+        {
+            "dataMode": "raw", 
+            "tests": "", 
+            "responses": [], 
+            "name": "TC_409", 
+            "collectionId": "ecc2df89-427b-4308-a7a8-ef92ef67a1cd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/callback/v1/notificationendpoint", 
+            "id": "69099290-8af7-4c69-bbcf-9dc7a24d975823", 
+            "method": "POST", 
+            "headers": "Accept: application/json\nContent-Type: application/json\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": "{\n    \"vnfInstanceId\": \"vnfinstanceid\",\n    \"vnfIndicatorId\": \"vnfindicatorid\",\n    \"name\": \"name\",\n    \"timeStamp\": \"2019-06-27t09:42:38.257z\",\n    \"notificationType\": \"notificationtype\",\n    \"value\": {},\n    \"_links\": {\n        \"vnfInstance\": {\n            \"href\": \"href\"\n        },\n        \"subscription\": {\n            \"href\": \"href\"\n        }\n    },\n    \"subscriptionId\": \"subscriptionid\",\n    \"id\": \"id\"\n}", 
+            "time": 1561628558255, 
+            "synced": false, 
+            "pathVariables": {}, 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_csv/1?query=/callback/v1/notificationendpoint',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "description": "The API producer can use this resource to send notifications related to VNF indicator value changes to a subscribed API consumer, which has provided the URI of this resource during the subscription process. The POST method delivers a notification from the server to the client.\n"
+        }
+    ], 
+    "id": "ecc2df89-427b-4308-a7a8-ef92ef67a1cd", 
+    "name": "SOL002 - VNF Indicator Notification Endpoint interface"
+}
