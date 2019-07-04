@@ -53,7 +53,10 @@ def writeToExcel(yaml_file):
 								for k,v in schitem.items():
 									refvalue = v.split("/")
 									refvalue = refvalue[-1]
-									print refvalue
+								for defTag in  data["definitions"]:
+									if defTag == refvalue:
+										for tagsInDef in data["definitions"][defTag]["properties"]:
+											dictListKeys.append(tagsInDef)
 							else:
 								for item in schitem:
 									if "items" not in item:

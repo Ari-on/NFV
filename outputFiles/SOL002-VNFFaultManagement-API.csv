@@ -1,1 +1,0 @@
-eventTime,perceivedSeverity,alarmClearedTime,probableCause,eventType,faultDetails,faultType,ackState,rootCauseFaultyResource,filter,isRootCause,correlatedAlarmIds,managedObjectId,_links,callbackUri,alarmRaisedTime,id,alarmChangedTime
