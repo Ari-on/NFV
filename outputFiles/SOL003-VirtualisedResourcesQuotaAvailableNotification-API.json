@@ -1,0 +1,2686 @@
+{
+    "folders": [
+        {
+            "description": "Folder for subscriptions", 
+            "collection_name": "SOL003 - Virtualised Resources Quota Available Notification interface", 
+            "collection": "46e8ee18-fa6d-4454-8bfb-65c645c639bd", 
+            "id": "6dfefe8e-bcf5-471d-a850-f9607bad5e7e", 
+            "collection_id": "46e8ee18-fa6d-4454-8bfb-65c645c639bd", 
+            "order": [
+                "1b64a1b0-1636-4cd5-bbfe-95bc3c92846a0", 
+                "b11c5960-9bc4-427e-a04c-a87b12dc663f1", 
+                "1b64a1b0-1636-4cd5-bbfe-95bc3c92846a2", 
+                "b11c5960-9bc4-427e-a04c-a87b12dc663f3", 
+                "1b64a1b0-1636-4cd5-bbfe-95bc3c92846a4", 
+                "b11c5960-9bc4-427e-a04c-a87b12dc663f5", 
+                "1b64a1b0-1636-4cd5-bbfe-95bc3c92846a6", 
+                "b11c5960-9bc4-427e-a04c-a87b12dc663f7", 
+                "1b64a1b0-1636-4cd5-bbfe-95bc3c92846a8", 
+                "b11c5960-9bc4-427e-a04c-a87b12dc663f9", 
+                "1b64a1b0-1636-4cd5-bbfe-95bc3c92846a10", 
+                "b11c5960-9bc4-427e-a04c-a87b12dc663f11", 
+                "1b64a1b0-1636-4cd5-bbfe-95bc3c92846a12", 
+                "b11c5960-9bc4-427e-a04c-a87b12dc663f13", 
+                "1b64a1b0-1636-4cd5-bbfe-95bc3c92846a14", 
+                "b11c5960-9bc4-427e-a04c-a87b12dc663f15", 
+                "1b64a1b0-1636-4cd5-bbfe-95bc3c92846a16", 
+                "b11c5960-9bc4-427e-a04c-a87b12dc663f17", 
+                "a0fc0b26-a942-40d7-b007-22850f332fb218", 
+                "a0fc0b26-a942-40d7-b007-22850f332fb219", 
+                "a0fc0b26-a942-40d7-b007-22850f332fb220", 
+                "a0fc0b26-a942-40d7-b007-22850f332fb221", 
+                "a0fc0b26-a942-40d7-b007-22850f332fb222", 
+                "a0fc0b26-a942-40d7-b007-22850f332fb223", 
+                "a0fc0b26-a942-40d7-b007-22850f332fb224", 
+                "a0fc0b26-a942-40d7-b007-22850f332fb225", 
+                "a0fc0b26-a942-40d7-b007-22850f332fb226", 
+                "a0fc0b26-a942-40d7-b007-22850f332fb227", 
+                "67594ea4-93c3-4abf-8a12-8c6c0abcdd2828", 
+                "67594ea4-93c3-4abf-8a12-8c6c0abcdd2829", 
+                "67594ea4-93c3-4abf-8a12-8c6c0abcdd2830", 
+                "67594ea4-93c3-4abf-8a12-8c6c0abcdd2831", 
+                "67594ea4-93c3-4abf-8a12-8c6c0abcdd2832", 
+                "67594ea4-93c3-4abf-8a12-8c6c0abcdd2833", 
+                "67594ea4-93c3-4abf-8a12-8c6c0abcdd2834", 
+                "67594ea4-93c3-4abf-8a12-8c6c0abcdd2835"
+            ], 
+            "name": "subscriptions"
+        }
+    ], 
+    "description": "SOL003 - Virtualised Resources Quota Available Notification interface \n\nIMPORTANT: Please note that this file might be not aligned to the current version of the ETSI Group Specification it refers to. In case of discrepancies the published ETSI Group Specification takes precedence.\n\nIn clause 4.3.2 of ETSI GS NFV-SOL 003 v2.4.1, an attribute-based filtering mechanism is defined. This mechanism is currently not included in the corresponding OpenAPI design for this GS version. Changes to the attribute-based filtering mechanism are being considered in v2.5.1 of this GS for inclusion in the corresponding future ETSI NFV OpenAPI design.\nPlease report bugs to https://forge.etsi.org/bugzilla/buglist.cgi?component=Nfv-Openapis&list_id=61&product=NFV&resolution=\n", 
+    "timestamp": 1413302258635, 
+    "order": [], 
+    "synced": false, 
+    "requests": [
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "collectionId": "46e8ee18-fa6d-4454-8bfb-65c645c639bd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vrqan/v1/subscriptions", 
+            "id": "1b64a1b0-1636-4cd5-bbfe-95bc3c92846a0", 
+            "description": "Query Subscription Information\n\nThe GET method allows the server to test the notification endpoint that is provided by the client, e.g. during subscription.\n", 
+            "name": "TC_200", 
+            "headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: {{Authorization}}\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1563190907742, 
+            "synced": false, 
+            "method": "GET", 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "    pm.expect(pm.response.text()).to.include(\"filter\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"callbackUri\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"_links\");", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/1?query=/vrqan/v1/subscriptions',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "pathVariables": {}
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "collectionId": "46e8ee18-fa6d-4454-8bfb-65c645c639bd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vrqan/v1/subscriptions/:subscriptionId", 
+            "id": "b11c5960-9bc4-427e-a04c-a87b12dc663f1", 
+            "description": "Query Subscription Information\n\nThe GET method reads an individual subscription.\n", 
+            "name": "TC_200", 
+            "headers": "Accept: application/json\nContent-Type: application/json\nAccept: {{Accept}}\nAuthorization: {{Authorization}}\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1563190907743, 
+            "synced": false, 
+            "method": "GET", 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "    pm.expect(pm.response.text()).to.include(\"filter\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"callbackUri\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"_links\");", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/2?query=/vrqan/v1/subscriptions/:subscriptionId',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "pathVariables": {}
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "collectionId": "46e8ee18-fa6d-4454-8bfb-65c645c639bd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vrqan/v1/subscriptions", 
+            "id": "1b64a1b0-1636-4cd5-bbfe-95bc3c92846a2", 
+            "description": "Query Subscription Information\n\nThe GET method allows the server to test the notification endpoint that is provided by the client, e.g. during subscription.\n", 
+            "name": "TC_204", 
+            "headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: {{Authorization}}\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1563190907742, 
+            "synced": false, 
+            "method": "GET", 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "    pm.expect(pm.response.text()).to.include(\"filter\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"callbackUri\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"_links\");", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/3?query=/vrqan/v1/subscriptions',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "pathVariables": {}
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "collectionId": "46e8ee18-fa6d-4454-8bfb-65c645c639bd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vrqan/v1/subscriptions/:subscriptionId", 
+            "id": "b11c5960-9bc4-427e-a04c-a87b12dc663f3", 
+            "description": "Query Subscription Information\n\nThe GET method reads an individual subscription.\n", 
+            "name": "TC_204", 
+            "headers": "Accept: application/json\nContent-Type: application/json\nAccept: {{Accept}}\nAuthorization: {{Authorization}}\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1563190907743, 
+            "synced": false, 
+            "method": "GET", 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "    pm.expect(pm.response.text()).to.include(\"filter\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"callbackUri\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"_links\");", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/4?query=/vrqan/v1/subscriptions/:subscriptionId',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "pathVariables": {}
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "collectionId": "46e8ee18-fa6d-4454-8bfb-65c645c639bd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vrqan/v1/subscriptions", 
+            "id": "1b64a1b0-1636-4cd5-bbfe-95bc3c92846a4", 
+            "description": "Query Subscription Information\n\nThe GET method allows the server to test the notification endpoint that is provided by the client, e.g. during subscription.\n", 
+            "name": "TC_406", 
+            "headers": "Accept: text/css\nContent-Type: application/json\nAuthorization: {{Authorization}}\n\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1563190907742, 
+            "synced": false, 
+            "method": "GET", 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "    pm.expect(pm.response.text()).to.include(\"filter\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"callbackUri\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"_links\");", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/5?query=/vrqan/v1/subscriptions',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "pathVariables": {}
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "collectionId": "46e8ee18-fa6d-4454-8bfb-65c645c639bd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vrqan/v1/subscriptions/:subscriptionId", 
+            "id": "b11c5960-9bc4-427e-a04c-a87b12dc663f5", 
+            "description": "Query Subscription Information\n\nThe GET method reads an individual subscription.\n", 
+            "name": "TC_406", 
+            "headers": "Accept: text/css\nContent-Type: application/json\nAccept: {{Accept}}\nAuthorization: {{Authorization}}\n\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1563190907743, 
+            "synced": false, 
+            "method": "GET", 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "    pm.expect(pm.response.text()).to.include(\"filter\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"callbackUri\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"_links\");", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/6?query=/vrqan/v1/subscriptions/:subscriptionId',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "pathVariables": {}
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "collectionId": "46e8ee18-fa6d-4454-8bfb-65c645c639bd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vrqan/v1/subscriptionssnoitpircsbus", 
+            "id": "1b64a1b0-1636-4cd5-bbfe-95bc3c92846a6", 
+            "description": "Query Subscription Information\n\nThe GET method allows the server to test the notification endpoint that is provided by the client, e.g. during subscription.\n", 
+            "name": "TC_404", 
+            "headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: {{Authorization}}\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1563190907742, 
+            "synced": false, 
+            "method": "GET", 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "    pm.expect(pm.response.text()).to.include(\"filter\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"callbackUri\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"_links\");", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/7?query=/vrqan/v1/subscriptionssnoitpircsbus',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "pathVariables": {}
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "collectionId": "46e8ee18-fa6d-4454-8bfb-65c645c639bd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vrqan/v1/subscriptionssnoitpircsbus/:subscriptionId", 
+            "id": "b11c5960-9bc4-427e-a04c-a87b12dc663f7", 
+            "description": "Query Subscription Information\n\nThe GET method reads an individual subscription.\n", 
+            "name": "TC_404", 
+            "headers": "Accept: application/json\nContent-Type: application/json\nAccept: {{Accept}}\nAuthorization: {{Authorization}}\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1563190907743, 
+            "synced": false, 
+            "method": "GET", 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "    pm.expect(pm.response.text()).to.include(\"filter\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"callbackUri\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"_links\");", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/8?query=/vrqan/v1/subscriptionssnoitpircsbus/:subscriptionId',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "pathVariables": {}
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "collectionId": "46e8ee18-fa6d-4454-8bfb-65c645c639bd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vrqan/v1/subscriptions", 
+            "id": "1b64a1b0-1636-4cd5-bbfe-95bc3c92846a8", 
+            "description": "Query Subscription Information\n\nThe GET method allows the server to test the notification endpoint that is provided by the client, e.g. during subscription.\n", 
+            "name": "TC_403", 
+            "headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: {{Authorization}}\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1563190907742, 
+            "synced": false, 
+            "method": "GET", 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "    pm.expect(pm.response.text()).to.include(\"filter\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"callbackUri\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"_links\");", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/9?query=/vrqan/v1/subscriptions',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "pathVariables": {}
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "collectionId": "46e8ee18-fa6d-4454-8bfb-65c645c639bd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vrqan/v1/subscriptions/:subscriptionId", 
+            "id": "b11c5960-9bc4-427e-a04c-a87b12dc663f9", 
+            "description": "Query Subscription Information\n\nThe GET method reads an individual subscription.\n", 
+            "name": "TC_403", 
+            "headers": "Accept: application/json\nContent-Type: application/json\nAccept: {{Accept}}\nAuthorization: {{Authorization}}\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1563190907743, 
+            "synced": false, 
+            "method": "GET", 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "    pm.expect(pm.response.text()).to.include(\"filter\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"callbackUri\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"_links\");", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/10?query=/vrqan/v1/subscriptions/:subscriptionId',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "pathVariables": {}
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "collectionId": "46e8ee18-fa6d-4454-8bfb-65c645c639bd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vrqan/v1/subscriptions", 
+            "id": "1b64a1b0-1636-4cd5-bbfe-95bc3c92846a10", 
+            "description": "Query Subscription Information\n\nThe GET method allows the server to test the notification endpoint that is provided by the client, e.g. during subscription.\n", 
+            "name": "TC_401", 
+            "headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: {{Authorization}}\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1563190907742, 
+            "synced": false, 
+            "method": "GET", 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "    pm.expect(pm.response.text()).to.include(\"filter\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"callbackUri\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"_links\");", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/11?query=/vrqan/v1/subscriptions',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "pathVariables": {}
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "collectionId": "46e8ee18-fa6d-4454-8bfb-65c645c639bd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vrqan/v1/subscriptions/:subscriptionId", 
+            "id": "b11c5960-9bc4-427e-a04c-a87b12dc663f11", 
+            "description": "Query Subscription Information\n\nThe GET method reads an individual subscription.\n", 
+            "name": "TC_401", 
+            "headers": "Accept: application/json\nContent-Type: application/json\nAccept: {{Accept}}\nAuthorization: {{Authorization}}\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1563190907743, 
+            "synced": false, 
+            "method": "GET", 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "    pm.expect(pm.response.text()).to.include(\"filter\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"callbackUri\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"_links\");", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/12?query=/vrqan/v1/subscriptions/:subscriptionId',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "pathVariables": {}
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "collectionId": "46e8ee18-fa6d-4454-8bfb-65c645c639bd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vrqan/v1/subscriptionss", 
+            "id": "1b64a1b0-1636-4cd5-bbfe-95bc3c92846a12", 
+            "description": "Query Subscription Information\n\nThe GET method allows the server to test the notification endpoint that is provided by the client, e.g. during subscription.\n", 
+            "name": "TC_400", 
+            "headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: {{Authorization}}\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1563190907742, 
+            "synced": false, 
+            "method": "GET", 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "    pm.expect(pm.response.text()).to.include(\"filter\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"callbackUri\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"_links\");", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/13?query=/vrqan/v1/subscriptionss',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "pathVariables": {}
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "collectionId": "46e8ee18-fa6d-4454-8bfb-65c645c639bd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vrqan/v1/subscriptions/:subscriptionIds", 
+            "id": "b11c5960-9bc4-427e-a04c-a87b12dc663f13", 
+            "description": "Query Subscription Information\n\nThe GET method reads an individual subscription.\n", 
+            "name": "TC_400", 
+            "headers": "Accept: application/json\nContent-Type: application/json\nAccept: {{Accept}}\nAuthorization: {{Authorization}}\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1563190907743, 
+            "synced": false, 
+            "method": "GET", 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "    pm.expect(pm.response.text()).to.include(\"filter\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"callbackUri\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"_links\");", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/14?query=/vrqan/v1/subscriptions/:subscriptionIds',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "pathVariables": {}
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "collectionId": "46e8ee18-fa6d-4454-8bfb-65c645c639bd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vrqan/v1/subscriptions", 
+            "id": "1b64a1b0-1636-4cd5-bbfe-95bc3c92846a14", 
+            "description": "Query Subscription Information\n\nThe GET method allows the server to test the notification endpoint that is provided by the client, e.g. during subscription.\n", 
+            "name": "TC_503", 
+            "headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: {{Authorization}}\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1563190907742, 
+            "synced": false, 
+            "method": "GET", 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "    pm.expect(pm.response.text()).to.include(\"filter\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"callbackUri\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"_links\");", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/15?query=/vrqan/v1/subscriptions',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "pathVariables": {}
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "collectionId": "46e8ee18-fa6d-4454-8bfb-65c645c639bd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vrqan/v1/subscriptions/:subscriptionId", 
+            "id": "b11c5960-9bc4-427e-a04c-a87b12dc663f15", 
+            "description": "Query Subscription Information\n\nThe GET method reads an individual subscription.\n", 
+            "name": "TC_503", 
+            "headers": "Accept: application/json\nContent-Type: application/json\nAccept: {{Accept}}\nAuthorization: {{Authorization}}\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1563190907743, 
+            "synced": false, 
+            "method": "GET", 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "    pm.expect(pm.response.text()).to.include(\"filter\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"callbackUri\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"_links\");", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/16?query=/vrqan/v1/subscriptions/:subscriptionId',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "pathVariables": {}
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "collectionId": "46e8ee18-fa6d-4454-8bfb-65c645c639bd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vrqan/v1/subscriptions", 
+            "id": "1b64a1b0-1636-4cd5-bbfe-95bc3c92846a16", 
+            "description": "Query Subscription Information\n\nThe GET method allows the server to test the notification endpoint that is provided by the client, e.g. during subscription.\n", 
+            "name": "TC_500", 
+            "headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: {{Authorization}}\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1563190907742, 
+            "synced": false, 
+            "method": "GET", 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "    pm.expect(pm.response.text()).to.include(\"filter\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"callbackUri\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"_links\");", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/17?query=/vrqan/v1/subscriptions',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "pathVariables": {}
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "collectionId": "46e8ee18-fa6d-4454-8bfb-65c645c639bd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vrqan/v1/subscriptions/:subscriptionId", 
+            "id": "b11c5960-9bc4-427e-a04c-a87b12dc663f17", 
+            "description": "Query Subscription Information\n\nThe GET method reads an individual subscription.\n", 
+            "name": "TC_500", 
+            "headers": "Accept: application/json\nContent-Type: application/json\nAccept: {{Accept}}\nAuthorization: {{Authorization}}\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1563190907743, 
+            "synced": false, 
+            "method": "GET", 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "    pm.expect(pm.response.text()).to.include(\"filter\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"callbackUri\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"_links\");", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/18?query=/vrqan/v1/subscriptions/:subscriptionId',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "pathVariables": {}
+        }, 
+        {
+            "dataMode": "raw", 
+            "tests": "", 
+            "responses": [], 
+            "collectionId": "46e8ee18-fa6d-4454-8bfb-65c645c639bd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vrqan/v1/subscriptions", 
+            "id": "a0fc0b26-a942-40d7-b007-22850f332fb218", 
+            "description": "Subscribe\n\nThe POST method creates a new subscription. Creation of two subscription resources with the same callbackURI and the same filter can result in performance degradation and will provide duplicates of notifications to the VNFM, and might make sense only in very rare use cases. Consequently, the NFVO may either allow creating a subscription resource if another subscription resource with the same filter and callbackUri already exists (in which case it shall return the “201 Created” response code), or may decide to not create a duplicate subscription resource (in which case it shall return a “303 See Other” response code referencing the existing subscription resource with the same filter and callbackUri).\n", 
+            "name": "TC_201", 
+            "headers": "Accept: application/json\nContent-Type: application/json\nAccept: {{Accept}}\nAuthorization: {{Authorization}}\nContent-Type: {{Content-Type}}\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": "{\n    \"filter\": {\n        \"vimIds\": [\n            \"vimids\"\n        ],\n        \"resourceTypes\": [\n            \"compute\"\n        ],\n        \"resourceProviderIds\": [\n            \"resourceproviderids\"\n        ],\n        \"resourceGroupIds\": [\n            \"resourcegroupids\"\n        ]\n    },\n    \"callbackUri\": \"callbackuri\",\n    \"authentication\": {\n        \"authType\": [\n            \"basic\"\n        ],\n        \"paramsOauth2ClientCredentials\": {\n            \"tokenEndpoint\": \"tokenendpoint\",\n            \"clientPassword\": \"clientpassword\",\n            \"clientId\": \"clientid\"\n        },\n        \"paramsBasic\": {\n            \"userName\": \"username\",\n            \"password\": \"password\"\n        }\n    }\n}", 
+            "time": 1563190907743, 
+            "synced": false, 
+            "method": "POST", 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "    pm.expect(pm.response.text()).to.include(\"filter\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"callbackUri\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"_links\");", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_csv/1?query=/vrqan/v1/subscriptions',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "pathVariables": {}
+        }, 
+        {
+            "dataMode": "raw", 
+            "tests": "", 
+            "responses": [], 
+            "collectionId": "46e8ee18-fa6d-4454-8bfb-65c645c639bd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vrqan/v1/subscriptions", 
+            "id": "a0fc0b26-a942-40d7-b007-22850f332fb219", 
+            "description": "Subscribe\n\nThe POST method creates a new subscription. Creation of two subscription resources with the same callbackURI and the same filter can result in performance degradation and will provide duplicates of notifications to the VNFM, and might make sense only in very rare use cases. Consequently, the NFVO may either allow creating a subscription resource if another subscription resource with the same filter and callbackUri already exists (in which case it shall return the “201 Created” response code), or may decide to not create a duplicate subscription resource (in which case it shall return a “303 See Other” response code referencing the existing subscription resource with the same filter and callbackUri).\n", 
+            "name": "TC_303", 
+            "headers": "Accept: application/json\nContent-Type: application/json\nAccept: {{Accept}}\nAuthorization: {{Authorization}}\nContent-Type: {{Content-Type}}\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": "{\n    \"filter\": {\n        \"vimIds\": [\n            \"vimids\"\n        ],\n        \"resourceTypes\": [\n            \"compute\"\n        ],\n        \"resourceProviderIds\": [\n            \"resourceproviderids\"\n        ],\n        \"resourceGroupIds\": [\n            \"resourcegroupids\"\n        ]\n    },\n    \"callbackUri\": \"callbackuri\",\n    \"authentication\": {\n        \"authType\": [\n            \"basic\"\n        ],\n        \"paramsOauth2ClientCredentials\": {\n            \"tokenEndpoint\": \"tokenendpoint\",\n            \"clientPassword\": \"clientpassword\",\n            \"clientId\": \"clientid\"\n        },\n        \"paramsBasic\": {\n            \"userName\": \"username\",\n            \"password\": \"password\"\n        }\n    }\n}", 
+            "time": 1563190907743, 
+            "synced": false, 
+            "method": "POST", 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "    pm.expect(pm.response.text()).to.include(\"filter\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"callbackUri\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"_links\");", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_csv/1?query=/vrqan/v1/subscriptions',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "pathVariables": {}
+        }, 
+        {
+            "dataMode": "raw", 
+            "tests": "", 
+            "responses": [], 
+            "collectionId": "46e8ee18-fa6d-4454-8bfb-65c645c639bd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vrqan/v1/subscriptions", 
+            "id": "a0fc0b26-a942-40d7-b007-22850f332fb220", 
+            "description": "Subscribe\n\nThe POST method creates a new subscription. Creation of two subscription resources with the same callbackURI and the same filter can result in performance degradation and will provide duplicates of notifications to the VNFM, and might make sense only in very rare use cases. Consequently, the NFVO may either allow creating a subscription resource if another subscription resource with the same filter and callbackUri already exists (in which case it shall return the “201 Created” response code), or may decide to not create a duplicate subscription resource (in which case it shall return a “303 See Other” response code referencing the existing subscription resource with the same filter and callbackUri).\n", 
+            "name": "TC_406", 
+            "headers": "Accept: text/css\nContent-Type: application/json\nAccept: {{Accept}}\nAuthorization: {{Authorization}}\nContent-Type: {{Content-Type}}\n\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": "{\n    \"filter\": {\n        \"vimIds\": [\n            \"vimids\"\n        ],\n        \"resourceTypes\": [\n            \"compute\"\n        ],\n        \"resourceProviderIds\": [\n            \"resourceproviderids\"\n        ],\n        \"resourceGroupIds\": [\n            \"resourcegroupids\"\n        ]\n    },\n    \"callbackUri\": \"callbackuri\",\n    \"authentication\": {\n        \"authType\": [\n            \"basic\"\n        ],\n        \"paramsOauth2ClientCredentials\": {\n            \"tokenEndpoint\": \"tokenendpoint\",\n            \"clientPassword\": \"clientpassword\",\n            \"clientId\": \"clientid\"\n        },\n        \"paramsBasic\": {\n            \"userName\": \"username\",\n            \"password\": \"password\"\n        }\n    }\n}", 
+            "time": 1563190907743, 
+            "synced": false, 
+            "method": "POST", 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "    pm.expect(pm.response.text()).to.include(\"filter\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"callbackUri\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"_links\");", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_csv/1?query=/vrqan/v1/subscriptions',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "pathVariables": {}
+        }, 
+        {
+            "dataMode": "raw", 
+            "tests": "", 
+            "responses": [], 
+            "collectionId": "46e8ee18-fa6d-4454-8bfb-65c645c639bd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vrqan/v1/subscriptions", 
+            "id": "a0fc0b26-a942-40d7-b007-22850f332fb221", 
+            "description": "Subscribe\n\nThe POST method creates a new subscription. Creation of two subscription resources with the same callbackURI and the same filter can result in performance degradation and will provide duplicates of notifications to the VNFM, and might make sense only in very rare use cases. Consequently, the NFVO may either allow creating a subscription resource if another subscription resource with the same filter and callbackUri already exists (in which case it shall return the “201 Created” response code), or may decide to not create a duplicate subscription resource (in which case it shall return a “303 See Other” response code referencing the existing subscription resource with the same filter and callbackUri).\n", 
+            "name": "TC_405", 
+            "headers": "Accept: application/json\nContent-Type: application/json\nAccept: {{Accept}}\nAuthorization: {{Authorization}}\nContent-Type: {{Content-Type}}\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": "{\n    \"filter\": {\n        \"vimIds\": [\n            \"vimids\"\n        ],\n        \"resourceTypes\": [\n            \"compute\"\n        ],\n        \"resourceProviderIds\": [\n            \"resourceproviderids\"\n        ],\n        \"resourceGroupIds\": [\n            \"resourcegroupids\"\n        ]\n    },\n    \"callbackUri\": \"callbackuri\",\n    \"authentication\": {\n        \"authType\": [\n            \"basic\"\n        ],\n        \"paramsOauth2ClientCredentials\": {\n            \"tokenEndpoint\": \"tokenendpoint\",\n            \"clientPassword\": \"clientpassword\",\n            \"clientId\": \"clientid\"\n        },\n        \"paramsBasic\": {\n            \"userName\": \"username\",\n            \"password\": \"password\"\n        }\n    }\n}", 
+            "time": 1563190907743, 
+            "synced": false, 
+            "method": "POST", 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "    pm.expect(pm.response.text()).to.include(\"filter\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"callbackUri\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"_links\");", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_csv/1?query=/vrqan/v1/subscriptions',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "pathVariables": {}
+        }, 
+        {
+            "dataMode": "raw", 
+            "tests": "", 
+            "responses": [], 
+            "collectionId": "46e8ee18-fa6d-4454-8bfb-65c645c639bd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vrqan/v1/subscriptionssnoitpircsbus", 
+            "id": "a0fc0b26-a942-40d7-b007-22850f332fb222", 
+            "description": "Subscribe\n\nThe POST method creates a new subscription. Creation of two subscription resources with the same callbackURI and the same filter can result in performance degradation and will provide duplicates of notifications to the VNFM, and might make sense only in very rare use cases. Consequently, the NFVO may either allow creating a subscription resource if another subscription resource with the same filter and callbackUri already exists (in which case it shall return the “201 Created” response code), or may decide to not create a duplicate subscription resource (in which case it shall return a “303 See Other” response code referencing the existing subscription resource with the same filter and callbackUri).\n", 
+            "name": "TC_404", 
+            "headers": "Accept: application/json\nContent-Type: application/json\nAccept: {{Accept}}\nAuthorization: {{Authorization}}\nContent-Type: {{Content-Type}}\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": "{\n    \"filter\": {\n        \"vimIds\": [\n            \"vimids\"\n        ],\n        \"resourceTypes\": [\n            \"compute\"\n        ],\n        \"resourceProviderIds\": [\n            \"resourceproviderids\"\n        ],\n        \"resourceGroupIds\": [\n            \"resourcegroupids\"\n        ]\n    },\n    \"callbackUri\": \"callbackuri\",\n    \"authentication\": {\n        \"authType\": [\n            \"basic\"\n        ],\n        \"paramsOauth2ClientCredentials\": {\n            \"tokenEndpoint\": \"tokenendpoint\",\n            \"clientPassword\": \"clientpassword\",\n            \"clientId\": \"clientid\"\n        },\n        \"paramsBasic\": {\n            \"userName\": \"username\",\n            \"password\": \"password\"\n        }\n    }\n}", 
+            "time": 1563190907743, 
+            "synced": false, 
+            "method": "POST", 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "    pm.expect(pm.response.text()).to.include(\"filter\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"callbackUri\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"_links\");", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_csv/1?query=/vrqan/v1/subscriptionssnoitpircsbus',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "pathVariables": {}
+        }, 
+        {
+            "dataMode": "raw", 
+            "tests": "", 
+            "responses": [], 
+            "collectionId": "46e8ee18-fa6d-4454-8bfb-65c645c639bd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vrqan/v1/subscriptions", 
+            "id": "a0fc0b26-a942-40d7-b007-22850f332fb223", 
+            "description": "Subscribe\n\nThe POST method creates a new subscription. Creation of two subscription resources with the same callbackURI and the same filter can result in performance degradation and will provide duplicates of notifications to the VNFM, and might make sense only in very rare use cases. Consequently, the NFVO may either allow creating a subscription resource if another subscription resource with the same filter and callbackUri already exists (in which case it shall return the “201 Created” response code), or may decide to not create a duplicate subscription resource (in which case it shall return a “303 See Other” response code referencing the existing subscription resource with the same filter and callbackUri).\n", 
+            "name": "TC_403", 
+            "headers": "Accept: application/json\nContent-Type: application/json\nAccept: {{Accept}}\nAuthorization: {{Authorization}}\nContent-Type: {{Content-Type}}\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": "{\n    \"filter\": {\n        \"vimIds\": [\n            \"vimids\"\n        ],\n        \"resourceTypes\": [\n            \"compute\"\n        ],\n        \"resourceProviderIds\": [\n            \"resourceproviderids\"\n        ],\n        \"resourceGroupIds\": [\n            \"resourcegroupids\"\n        ]\n    },\n    \"callbackUri\": \"callbackuri\",\n    \"authentication\": {\n        \"authType\": [\n            \"basic\"\n        ],\n        \"paramsOauth2ClientCredentials\": {\n            \"tokenEndpoint\": \"tokenendpoint\",\n            \"clientPassword\": \"clientpassword\",\n            \"clientId\": \"clientid\"\n        },\n        \"paramsBasic\": {\n            \"userName\": \"username\",\n            \"password\": \"password\"\n        }\n    }\n}", 
+            "time": 1563190907743, 
+            "synced": false, 
+            "method": "POST", 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "    pm.expect(pm.response.text()).to.include(\"filter\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"callbackUri\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"_links\");", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_csv/1?query=/vrqan/v1/subscriptions',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "pathVariables": {}
+        }, 
+        {
+            "dataMode": "raw", 
+            "tests": "", 
+            "responses": [], 
+            "collectionId": "46e8ee18-fa6d-4454-8bfb-65c645c639bd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vrqan/v1/subscriptions", 
+            "id": "a0fc0b26-a942-40d7-b007-22850f332fb224", 
+            "description": "Subscribe\n\nThe POST method creates a new subscription. Creation of two subscription resources with the same callbackURI and the same filter can result in performance degradation and will provide duplicates of notifications to the VNFM, and might make sense only in very rare use cases. Consequently, the NFVO may either allow creating a subscription resource if another subscription resource with the same filter and callbackUri already exists (in which case it shall return the “201 Created” response code), or may decide to not create a duplicate subscription resource (in which case it shall return a “303 See Other” response code referencing the existing subscription resource with the same filter and callbackUri).\n", 
+            "name": "TC_401", 
+            "headers": "Accept: application/json\nContent-Type: application/json\nAccept: {{Accept}}\nAuthorization: {{Authorization}}\nContent-Type: {{Content-Type}}\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": "{\n    \"filter\": {\n        \"vimIds\": [\n            \"vimids\"\n        ],\n        \"resourceTypes\": [\n            \"compute\"\n        ],\n        \"resourceProviderIds\": [\n            \"resourceproviderids\"\n        ],\n        \"resourceGroupIds\": [\n            \"resourcegroupids\"\n        ]\n    },\n    \"callbackUri\": \"callbackuri\",\n    \"authentication\": {\n        \"authType\": [\n            \"basic\"\n        ],\n        \"paramsOauth2ClientCredentials\": {\n            \"tokenEndpoint\": \"tokenendpoint\",\n            \"clientPassword\": \"clientpassword\",\n            \"clientId\": \"clientid\"\n        },\n        \"paramsBasic\": {\n            \"userName\": \"username\",\n            \"password\": \"password\"\n        }\n    }\n}", 
+            "time": 1563190907743, 
+            "synced": false, 
+            "method": "POST", 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "    pm.expect(pm.response.text()).to.include(\"filter\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"callbackUri\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"_links\");", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_csv/1?query=/vrqan/v1/subscriptions',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "pathVariables": {}
+        }, 
+        {
+            "dataMode": "raw", 
+            "tests": "", 
+            "responses": [], 
+            "collectionId": "46e8ee18-fa6d-4454-8bfb-65c645c639bd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vrqan/v1/subscriptionss", 
+            "id": "a0fc0b26-a942-40d7-b007-22850f332fb225", 
+            "description": "Subscribe\n\nThe POST method creates a new subscription. Creation of two subscription resources with the same callbackURI and the same filter can result in performance degradation and will provide duplicates of notifications to the VNFM, and might make sense only in very rare use cases. Consequently, the NFVO may either allow creating a subscription resource if another subscription resource with the same filter and callbackUri already exists (in which case it shall return the “201 Created” response code), or may decide to not create a duplicate subscription resource (in which case it shall return a “303 See Other” response code referencing the existing subscription resource with the same filter and callbackUri).\n", 
+            "name": "TC_400", 
+            "headers": "Accept: application/json\nContent-Type: application/json\nAccept: {{Accept}}\nAuthorization: {{Authorization}}\nContent-Type: {{Content-Type}}\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": "{\n    \"filter\": {\n        \"vimIds\": [\n            \"vimids\"\n        ],\n        \"resourceTypes\": [\n            \"compute\"\n        ],\n        \"resourceProviderIds\": [\n            \"resourceproviderids\"\n        ],\n        \"resourceGroupIds\": [\n            \"resourcegroupids\"\n        ]\n    },\n    \"callbackUri\": \"callbackuri\",\n    \"authentication\": {\n        \"authType\": [\n            \"basic\"\n        ],\n        \"paramsOauth2ClientCredentials\": {\n            \"tokenEndpoint\": \"tokenendpoint\",\n            \"clientPassword\": \"clientpassword\",\n            \"clientId\": \"clientid\"\n        },\n        \"paramsBasic\": {\n            \"userName\": \"username\",\n            \"password\": \"password\"\n        }\n    }\n}", 
+            "time": 1563190907743, 
+            "synced": false, 
+            "method": "POST", 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "    pm.expect(pm.response.text()).to.include(\"filter\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"callbackUri\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"_links\");", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_csv/1?query=/vrqan/v1/subscriptionss',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "pathVariables": {}
+        }, 
+        {
+            "dataMode": "raw", 
+            "tests": "", 
+            "responses": [], 
+            "collectionId": "46e8ee18-fa6d-4454-8bfb-65c645c639bd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vrqan/v1/subscriptions", 
+            "id": "a0fc0b26-a942-40d7-b007-22850f332fb226", 
+            "description": "Subscribe\n\nThe POST method creates a new subscription. Creation of two subscription resources with the same callbackURI and the same filter can result in performance degradation and will provide duplicates of notifications to the VNFM, and might make sense only in very rare use cases. Consequently, the NFVO may either allow creating a subscription resource if another subscription resource with the same filter and callbackUri already exists (in which case it shall return the “201 Created” response code), or may decide to not create a duplicate subscription resource (in which case it shall return a “303 See Other” response code referencing the existing subscription resource with the same filter and callbackUri).\n", 
+            "name": "TC_503", 
+            "headers": "Accept: application/json\nContent-Type: application/json\nAccept: {{Accept}}\nAuthorization: {{Authorization}}\nContent-Type: {{Content-Type}}\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": "{\n    \"filter\": {\n        \"vimIds\": [\n            \"vimids\"\n        ],\n        \"resourceTypes\": [\n            \"compute\"\n        ],\n        \"resourceProviderIds\": [\n            \"resourceproviderids\"\n        ],\n        \"resourceGroupIds\": [\n            \"resourcegroupids\"\n        ]\n    },\n    \"callbackUri\": \"callbackuri\",\n    \"authentication\": {\n        \"authType\": [\n            \"basic\"\n        ],\n        \"paramsOauth2ClientCredentials\": {\n            \"tokenEndpoint\": \"tokenendpoint\",\n            \"clientPassword\": \"clientpassword\",\n            \"clientId\": \"clientid\"\n        },\n        \"paramsBasic\": {\n            \"userName\": \"username\",\n            \"password\": \"password\"\n        }\n    }\n}", 
+            "time": 1563190907743, 
+            "synced": false, 
+            "method": "POST", 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "    pm.expect(pm.response.text()).to.include(\"filter\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"callbackUri\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"_links\");", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_csv/1?query=/vrqan/v1/subscriptions',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "pathVariables": {}
+        }, 
+        {
+            "dataMode": "raw", 
+            "tests": "", 
+            "responses": [], 
+            "collectionId": "46e8ee18-fa6d-4454-8bfb-65c645c639bd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vrqan/v1/subscriptions", 
+            "id": "a0fc0b26-a942-40d7-b007-22850f332fb227", 
+            "description": "Subscribe\n\nThe POST method creates a new subscription. Creation of two subscription resources with the same callbackURI and the same filter can result in performance degradation and will provide duplicates of notifications to the VNFM, and might make sense only in very rare use cases. Consequently, the NFVO may either allow creating a subscription resource if another subscription resource with the same filter and callbackUri already exists (in which case it shall return the “201 Created” response code), or may decide to not create a duplicate subscription resource (in which case it shall return a “303 See Other” response code referencing the existing subscription resource with the same filter and callbackUri).\n", 
+            "name": "TC_500", 
+            "headers": "Accept: application/json\nContent-Type: application/json\nAccept: {{Accept}}\nAuthorization: {{Authorization}}\nContent-Type: {{Content-Type}}\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": "{\n    \"filter\": {\n        \"vimIds\": [\n            \"vimids\"\n        ],\n        \"resourceTypes\": [\n            \"compute\"\n        ],\n        \"resourceProviderIds\": [\n            \"resourceproviderids\"\n        ],\n        \"resourceGroupIds\": [\n            \"resourcegroupids\"\n        ]\n    },\n    \"callbackUri\": \"callbackuri\",\n    \"authentication\": {\n        \"authType\": [\n            \"basic\"\n        ],\n        \"paramsOauth2ClientCredentials\": {\n            \"tokenEndpoint\": \"tokenendpoint\",\n            \"clientPassword\": \"clientpassword\",\n            \"clientId\": \"clientid\"\n        },\n        \"paramsBasic\": {\n            \"userName\": \"username\",\n            \"password\": \"password\"\n        }\n    }\n}", 
+            "time": 1563190907743, 
+            "synced": false, 
+            "method": "POST", 
+            "preRequestScript": "", 
+            "data": [], 
+            "events": [
+                {
+                    "listen": "test", 
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "var jsonData = pm.response.json();", 
+                            "pm.test(\"Status code is -  \"+ jsonData['statuscode'] , function() {", 
+                            "    pm.expect(jsonData['statuscode']).to.be.eql(200)", 
+                            "});", 
+                            "", 
+                            "pm.test(\"Body matches string\", function () {", 
+                            "    pm.expect(pm.response.text()).to.include(\"filter\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"callbackUri\");", 
+                            "    pm.expect(pm.response.text()).to.include(\"_links\");", 
+                            "});", 
+                            "", 
+                            "pm.test(\"isString\" ,function() {", 
+                            "    if  (pm.response.json().res){", 
+                            "        jsonData = pm.response.json().res; \n    }", 
+                            "    else{", 
+                            "        var jsonData = [pm.response.json()];\n    }", 
+                            "    for (i = 0; i < jsonData.length; i++) {", 
+                            "    }", 
+                            "})"
+                        ]
+                    }
+                }, 
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_csv/1?query=/vrqan/v1/subscriptions',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "pathVariables": {}
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "collectionId": "46e8ee18-fa6d-4454-8bfb-65c645c639bd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vrqan/v1/subscriptions/:subscriptionId", 
+            "id": "67594ea4-93c3-4abf-8a12-8c6c0abcdd2828", 
+            "description": "Terminate subscription\n\nThe DELETE method terminates an individual subscription.\n", 
+            "name": "TC_204", 
+            "headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: {{Authorization}}\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1563190907743, 
+            "synced": false, 
+            "events": [
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/29?query=/vrqan/v1/subscriptions/:subscriptionId',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "preRequestScript": "", 
+            "data": [], 
+            "method": "DELETE", 
+            "pathVariables": {}
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "collectionId": "46e8ee18-fa6d-4454-8bfb-65c645c639bd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vrqan/v1/subscriptions/:subscriptionId", 
+            "id": "67594ea4-93c3-4abf-8a12-8c6c0abcdd2829", 
+            "description": "Terminate subscription\n\nThe DELETE method terminates an individual subscription.\n", 
+            "name": "TC_406", 
+            "headers": "Accept: text/css\nContent-Type: application/json\nAuthorization: {{Authorization}}\n\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1563190907743, 
+            "synced": false, 
+            "events": [
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/30?query=/vrqan/v1/subscriptions/:subscriptionId',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "preRequestScript": "", 
+            "data": [], 
+            "method": "DELETE", 
+            "pathVariables": {}
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "collectionId": "46e8ee18-fa6d-4454-8bfb-65c645c639bd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vrqan/v1/subscriptions/:subscriptionId", 
+            "id": "67594ea4-93c3-4abf-8a12-8c6c0abcdd2830", 
+            "description": "Terminate subscription\n\nThe DELETE method terminates an individual subscription.\n", 
+            "name": "TC_405", 
+            "headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: {{Authorization}}\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1563190907743, 
+            "synced": false, 
+            "events": [
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/31?query=/vrqan/v1/subscriptions/:subscriptionId',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "preRequestScript": "", 
+            "data": [], 
+            "method": "DELETE", 
+            "pathVariables": {}
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "collectionId": "46e8ee18-fa6d-4454-8bfb-65c645c639bd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vrqan/v1/subscriptions/:subscriptionId", 
+            "id": "67594ea4-93c3-4abf-8a12-8c6c0abcdd2831", 
+            "description": "Terminate subscription\n\nThe DELETE method terminates an individual subscription.\n", 
+            "name": "TC_403", 
+            "headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: {{Authorization}}\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1563190907743, 
+            "synced": false, 
+            "events": [
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/32?query=/vrqan/v1/subscriptions/:subscriptionId',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "preRequestScript": "", 
+            "data": [], 
+            "method": "DELETE", 
+            "pathVariables": {}
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "collectionId": "46e8ee18-fa6d-4454-8bfb-65c645c639bd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vrqan/v1/subscriptions/:subscriptionId", 
+            "id": "67594ea4-93c3-4abf-8a12-8c6c0abcdd2832", 
+            "description": "Terminate subscription\n\nThe DELETE method terminates an individual subscription.\n", 
+            "name": "TC_401", 
+            "headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: {{Authorization}}\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1563190907743, 
+            "synced": false, 
+            "events": [
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/33?query=/vrqan/v1/subscriptions/:subscriptionId',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "preRequestScript": "", 
+            "data": [], 
+            "method": "DELETE", 
+            "pathVariables": {}
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "collectionId": "46e8ee18-fa6d-4454-8bfb-65c645c639bd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vrqan/v1/subscriptions/:subscriptionIds", 
+            "id": "67594ea4-93c3-4abf-8a12-8c6c0abcdd2833", 
+            "description": "Terminate subscription\n\nThe DELETE method terminates an individual subscription.\n", 
+            "name": "TC_400", 
+            "headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: {{Authorization}}\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1563190907743, 
+            "synced": false, 
+            "events": [
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/34?query=/vrqan/v1/subscriptions/:subscriptionIds',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "preRequestScript": "", 
+            "data": [], 
+            "method": "DELETE", 
+            "pathVariables": {}
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "collectionId": "46e8ee18-fa6d-4454-8bfb-65c645c639bd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vrqan/v1/subscriptions/:subscriptionId", 
+            "id": "67594ea4-93c3-4abf-8a12-8c6c0abcdd2834", 
+            "description": "Terminate subscription\n\nThe DELETE method terminates an individual subscription.\n", 
+            "name": "TC_503", 
+            "headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: {{Authorization}}\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1563190907743, 
+            "synced": false, 
+            "events": [
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/35?query=/vrqan/v1/subscriptions/:subscriptionId',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "preRequestScript": "", 
+            "data": [], 
+            "method": "DELETE", 
+            "pathVariables": {}
+        }, 
+        {
+            "dataMode": "params", 
+            "tests": "", 
+            "responses": [], 
+            "collectionId": "46e8ee18-fa6d-4454-8bfb-65c645c639bd", 
+            "url": "{{scheme}}://{{host}}:{{port}}/vrqan/v1/subscriptions/:subscriptionId", 
+            "id": "67594ea4-93c3-4abf-8a12-8c6c0abcdd2835", 
+            "description": "Terminate subscription\n\nThe DELETE method terminates an individual subscription.\n", 
+            "name": "TC_500", 
+            "headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: {{Authorization}}\n", 
+            "descriptionFormat": "html", 
+            "version": 2, 
+            "rawModeData": null, 
+            "time": 1563190907743, 
+            "synced": false, 
+            "events": [
+                {
+                    "script": {
+                        "type": "text/javascript", 
+                        "exec": [
+                            "    var list = [];", 
+                            "    pm.sendRequest({", 
+                            [
+                                "    url: 'localhost:8081/read_db/36?query=/vrqan/v1/subscriptions/:subscriptionId',"
+                            ], 
+                            "    method: 'GET',", 
+                            "    header: 'Content-Type:application/x-www-form-urlencoded',", 
+                            "    }, function (err, res) {", 
+                            "    var response_json = res.json();", 
+                            "    if(list.length === 0){", 
+                            "    var key;", 
+                            "    for (key in response_json) {", 
+                            "        if (response_json.hasOwnProperty(key))", 
+                            "        {", 
+                            "            list.push(response_json[key]);", 
+                            "        }", 
+                            "    }", 
+                            "", 
+                            "    var currentData = list.shift();", 
+                            "", 
+                            "    }", 
+                            "});"
+                        ]
+                    }, 
+                    "listen": "prerequest"
+                }
+            ], 
+            "preRequestScript": "", 
+            "data": [], 
+            "method": "DELETE", 
+            "pathVariables": {}
+        }
+    ], 
+    "id": "46e8ee18-fa6d-4454-8bfb-65c645c639bd", 
+    "name": "SOL003 - Virtualised Resources Quota Available Notification interface"
+}
